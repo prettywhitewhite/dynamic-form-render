@@ -1,0 +1,8 @@
+$dy-link-text-color: #2a60e4 !default;
+$dy-link-text-hover-color: lighten($dy-link-text-color, 5%) !default !default;
+$dy-link-text-active-color: $dy-link-text-hover-color !default;
+$dy-link-text-focus-color: $dy-link-text-hover-color !default;
+$dy-link-text-visited-color: $dy-link-text-color !default;
+
+$dy-link-text-color-secondary: #2472cd !default;
+$dy-link-text-decoration: none !default;

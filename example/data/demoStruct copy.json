@@ -1,0 +1,246 @@
+  [
+       {
+
+        "field": "radio",
+        "type": "radioGroup",
+        "label": "radio",
+        "config":{
+          "options":[
+            {
+              "id":1,
+              "text":"参与"
+            }
+          ]
+        }
+       },
+      {
+        "field": "name",
+        "type": "input",
+        "label": "创意名称",
+        "rules": [
+          {"required":true,"message": "请填写创意名称"},
+          {"maxLength": "20","message": "创意名称最多可写20个字"},
+          { "pattern":  "^[A-Za-z0-9_\u4e00-\u9fa5]+$", "message":"创意名称仅支持汉字、字母、数字、下划线"}
+         ],
+         "config":{
+          "placeholder": "请填写创意名称"
+         },
+				 "default": ""
+       },
+       {
+        "field":"uid",
+        "type":"inputUid",
+        "label":"微博UID",
+        "config":{
+          "api":{
+            "url": "/common/getName",
+            "method": "GET",
+            "query":"{{(value)=>({customer_id: value})}}" 
+          },
+          "target":"{{(response)=>response.name}}",
+          "placeholder": "请输入客户uid" 
+        },
+        "rules":[{
+          "required":true,
+          "message": "请输入客户uid"
+        }],
+        "default": ""
+      },
+      {
+        "field": "content",
+        "type": "contentTextarea",
+        "label": "博文正文",
+        "config":{
+          "max":1400,
+          "placeholder":"请输入博文正文，最多可输入1400字"
+        },
+        "rules": [{"required":true,"message": "请输入博文正文"}]
+      },
+     {
+       "field":"video_type",
+       "type":"radioGroup",
+       "label":"视频类型",
+       "config":{
+         "options":[
+           {
+           "id":1,
+           "text":"本地视频"
+          },
+          {
+           "id":2,
+           "text":"在线视频"
+          }
+        ]
+       },
+       "event":{
+         "change":"{{()=>{rootValue.video_url=''}}}"
+       }
+     },
+     {
+       "field":"video_url",
+       "type":"upload",
+       "label":"",
+       "dependence":{
+         "show":"{{rootValue.video_type === 1}}"
+       },
+       "rules":[{
+        "required":true,
+        "message":"请上传视频"
+       }]
+     },
+     {
+      "field":"video_url",
+      "type":"inputQrcode",
+      "label":"视频链接",
+      "config":{
+        "type":"mid"
+      },
+      "dependence":{
+        "show":"{{rootValue.video_type === 2}}"
+      },
+      "rules":[{
+        "required":true,
+        "message":"请输入视频链接"
+      }]
+    },
+      {
+       "type":"group",
+       "label":"播放内按钮",
+       "config":{
+        "inline": true
+       },
+       "fields":[
+         {
+         "field":"inner_button",
+         "type":"select",
+         "config":{
+           "options":[
+             {
+              "id":"无",
+              "text":"无"
+             },
+             { 
+               "id":"立即参与",
+               "text":"立即参与"
+             },
+             { 
+              "id":"自定义输入",
+              "text":"自定义输入"
+            }
+          ]
+         }
+        },
+        {
+          "field":"inner_button_custom",
+          "type":"input",
+          "config":{
+            "placeholder": "不多于4个字",
+            "style":{
+              "width": "248px"
+            }
+          },
+          "dependence":{
+            "show":"{{parentValue.inner_button === '自定义输入'}}"
+          },
+          "rules":[{
+            "required":true,
+            "message":"请输入自定义按钮名称"
+          },
+          {
+            "max":4,
+            "message":"自定义按钮名称不能超过4字"
+          }]
+        }
+      ]
+      },
+      {
+        "field":"inner_button_url",
+        "type":"input",
+        "label":"播放内按钮链接",
+        "config":{
+          "placeholder":"请输入播放内按钮链接"
+        },
+        "dependence":{
+          "show":"{{parentValue.inner_button && parentValue.inner_button !== '无'}}"
+        },
+        "rules":[{
+          "required":true,
+          "message":"请输入按钮链接"
+        }]
+      },
+      {
+        "type":"group",
+        "config":{
+          "inline": true
+        },
+        "fields":[
+          {
+            "field":"button_type",
+            "type":"select",
+            "label":"card按钮",
+            "config":{
+              "options":[
+                {"id":"无","text":"无"},
+                {"id":"参与","text":"参与"},
+                {"id":"自定义","text":"自定义"}
+              ]
+            }
+          },
+          {
+            "field":"button_name",
+            "type":"input",
+            "dependence":{
+              "show":"{{parentValue.button_type === '自定义'}}"
+            },
+            "config":{
+              "style":{
+                "width": "245px"
+              }
+            },
+            "rules":[{
+              "required":true,
+              "message":"请输入自定义按钮名称"
+            }]
+          }
+        ]
+      },
+      {
+        "field":"button_url",
+        "type":"input",
+        "label":"card按钮链接",
+        "dependence":{
+          "show":"{{parentValue.button_type && parentValue.button_type !== '无'}}"
+        },
+        "rules":[{
+          "required":true,
+          "message":"请输入card按钮链接"
+        }]
+      },
+      {
+        "field": "display_name",
+        "type": "input",
+        "label": "card标题",
+        "rules": [
+          {"required":true,"message": "请填写card标题"},
+          {"max": "20","message": "card标题最多可写20个字"}
+        ]
+      },
+      {
+        "field": "summary",
+        "type": "input",
+        "label": "card描述",
+        "rules": [
+          {"required":true,"message": "请填写card描述"},
+          {"max": "50","message": "card描述最多可写50个字"}
+        ]
+     },
+     {
+      "field": "card_url",
+      "type": "input",
+      "label": "card链接",
+      "rules": [
+        {"required":true,"message": "请填写card链接"}
+      ]
+     } 
+    ]
+	

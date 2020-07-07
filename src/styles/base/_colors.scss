@@ -1,0 +1,30 @@
+$white: #fff;
+$dy-background-color: #f5f7fb !default;
+$dy-body-background-color: $dy-background-color !default;
+$dy-brand-primary: #2a60e4 !default;
+$dy-brand-primary-light: lighten(#2a60e4, 5%) !default;
+$dy-brand-primary-light-hard: lighten(#2a60e4, 15%) !default;
+$dy-brand-primary-dark: darken(#2a60e4, 5%) !default;
+
+$dy-brand-success: #75b430 !default;
+$dy-brand-warning: #ffb23f !default;
+$dy-brand-danger: #c82439 !default;
+$dy-brand-info: #909399 !default;
+
+$dy-colors: #f96037, #fcb965, #2a60e4, #a5abc6, #6bd29b !default;
+
+// text color
+$dy-text-color: #596597 !default;
+$dy-text-color-dark: #2e334a !default;
+$dy-text-color-disabled: #c5c8ce !default;
+$dy-text-placeholder-color: #8d98bc !default;
+$dy-text-hover-background-color: #ebf0fb !default;
+$dy-text-color-tip: #d5d5d5 !default;
+$dy-color-text-placeholder: #a3a3a3 !default;
+$dy-tooltip-text-color: #606266 !default;
+
+$dy-card-text-color: #07175d !default;
+$dy-seledy-text-color: #07175d !default;
+$dy-form-text-color: #606266 !default;
+$dy-form-desc-color: #989898 !default;
+$dy-form-error-color: #f56c6c !default;

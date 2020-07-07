@@ -1,0 +1,104 @@
+@mixin link(
+  $default-color: $dy-link-text-color,
+  $visited-color: $dy-link-text-visited-color,
+  $hover-color: $dy-link-text-hover-color,
+  $active-color: $dy-link-text-active-color,
+  $focus-color: $dy-link-text-focus-color,
+  $text-decoration: $dy-link-text-decoration
+) {
+  color: $default-color;
+  text-decoration: $text-decoration;
+  cursor: pointer;
+  &:hover {
+    color: $hover-color;
+  }
+  &:active {
+    color: $active-color;
+  }
+  &:focus {
+    color: $focus-color;
+  }
+  &:visited {
+    color: $visited-color;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin ellipsis($width) {
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin multiRowEllipsis($width, $row) {
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $row;
+}
+
+@mixin tipIcon(
+  $default-color: $dy-text-color-tip,
+  $default-font: 14px,
+  $default-margin: 4px
+) {
+  color: $default-color;
+  font-size: $default-font;
+  margin: 0 $default-margin;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 垂直居中
+@mixin columnCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin label($font-size: $dy-font-size-base, $color: $dy-text-color) {
+  font-size: $font-size;
+  color: $color;
+}
+
+@mixin border($border-color: $dy-border-color-base) {
+  border: 1px solid $border-color;
+  border-radius: $dy-border-radius;
+  box-shadow: 0 2px 4px 0 $dy-panel-border-shadow-color;
+}
+
+@mixin number($font-size: $dy-number-font-size, $color: $dy-text-color-dark) {
+  font-family: DINAlternate-Bold, arial, sans-serif;
+  font-size: $font-size;
+  color: $color;
+
+  @include ellipsis(100%);
+}
+
+@mixin circular($diameter: 10px) {
+  display: inline-block;
+  width: $diameter;
+  height: $diameter;
+  border-radius: 50%;
+  margin-right: 10px;
+}

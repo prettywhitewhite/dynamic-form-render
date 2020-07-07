@@ -1,0 +1,82 @@
+$dy-content-textarea-font-size: $dy-font-size-base !default;
+$dy-content-texearea-min-rows: 8 !default;
+$dy-content-textarea-font-stretch: 100% !default;
+$dy-content-textarea-line-height: 1.5 !default;
+$dy-content-textarea-caret-color: #4d5060 !default;
+$dy-content-textarea-color: $dy-form-text-color !default;
+$dy-content-textarea-font-family: PingFangSC-Regular, sans-serif !default;
+
+$dy-content-textarea-input-min-height: calc(
+  #{$dy-content-texearea-min-rows} * #{$dy-font-size-base} * #{$dy-content-textarea-line-height} +
+    20px
+);
+dy-content-textarea {
+  width: $--input-width;
+}
+.dy-content-textarea__input {
+  position: relative;
+  width: $dy-input-width;
+  min-height: $dy-content-textarea-input-min-height;
+  font-size: $dy-content-textarea-font-size;
+}
+.dy-content-textarea__input__count {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  color: $dy-text-color-tip;
+  font-size: 12px;
+  line-height: 12px;
+  .is-overflow {
+    color: $dy-brand-danger;
+  }
+}
+.dy-content-textarea__mask {
+  width: 100%;
+  height: auto;
+  padding: 10px 16px;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: pre-line;
+  background: transparent;
+  letter-spacing: normal;
+  font-stretch: $dy-content-textarea-font-stretch;
+  line-height: $dy-content-textarea-line-height;
+  color: $dy-content-textarea-color;
+  font-family: $dy-content-textarea-font-family;
+}
+.dy-content-textarea__mask__placeholder {
+  color: $dy-text-color-disabled;
+}
+.dy-content-textarea__mask__light {
+  color: $dy-brand-primary;
+}
+.dy-content-textarea__inner {
+  .el-textarea__inner {
+    word-break: break-all;
+    font-family: $dy-content-textarea-font-family;
+    caret-color: $dy-content-textarea-caret-color;
+    font-stretch: $dy-content-textarea-font-stretch;
+    line-height: $dy-content-textarea-line-height;
+    font-size: $dy-content-textarea-font-size;
+    padding: 10px 15px;
+  }
+}
+.show-dynamic-nick-name {
+  .dy-content-textarea__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .el-textarea__inner {
+      background: transparent;
+      color: transparent;
+    }
+  }
+}
+
+.dy-content-textarea__tips {
+  color: #939393;
+  font-size: 12px;
+  line-height: 20px;
+}

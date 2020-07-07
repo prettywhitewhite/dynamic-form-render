@@ -1,0 +1,32 @@
+.dy-form-field {
+  position: relative;
+}
+.dy-form-field__desc {
+  position: absolute;
+  font-size: 12px;
+  color: $dy-form-desc-color;
+  line-height: 20px;
+  bottom: -25px;
+  right: 2px;
+  &.is-offset {
+    right: 22px;
+  }
+}
+.dy-form-field__tooltip {
+  vertical-align: top;
+}
+.dy-form-field__tooltip__popper {
+  min-width: 10px;
+}
+.dy-form-field__tooltip__icon {
+  color: $dy-text-color-tip;
+  margin-left: 6px;
+  transform: rotate(180deg);
+}
+.dy-form-field {
+  &.is-error {
+    .dy-file-uploader {
+      border: 1px solid $dy-form-error-color;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.dy-radio-group--plain {
+  .el-radio-button__orig-radio:checked {
+    & + .el-radio-button__inner {
+      background-color: $white;
+      color: $dy-brand-primary;
+      font-weight: 700;
+      border-color: $dy-brand-primary;
+    }
+  }
+}

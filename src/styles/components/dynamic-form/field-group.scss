@@ -1,0 +1,7 @@
+.dy-dynamic-field-group--inline {
+	display: flex;
+	.el-form-item + .el-form-item {
+		margin-top: 0;
+		margin-left: $dy-content-area-margin;
+	}
+}

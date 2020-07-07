@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+if [ ! $1 ]
+then 
+  node scripts/check-version 
+else
+  node scripts/check-version -v $1
+fi		
+npm config set registry http://nexus.biz.weibo.com/repository/npm
+
+git add .
+git commit -m  "chore(release) version: "$PACKAGE_VERSION" ""$*"
+git push -u
+
+npm run build
+npm publish --access public --registry=http://nexus.biz.weibo.com/repository/npm-hosts

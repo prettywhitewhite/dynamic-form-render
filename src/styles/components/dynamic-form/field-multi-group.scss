@@ -1,0 +1,30 @@
+$dy-dynamic-field-multi-group-button-color: #07175d !default;
+$dy-dynamic-field-multi-group-button-font-size: 18px !default;
+.dy-dynamic-field-multi-group__unit {
+  display: flex;
+
+  & + & {
+    .dy-dynamic-field-multi-group__unit__fields {
+      border-top: none;
+    }
+  }
+}
+.dy-dynamic-field-multi-group__unit__actions {
+  align-self: center;
+}
+.dy-dynamic-field-multi-group__unit__actions__button {
+  display: block;
+  margin-left: $dy-content-area-margin;
+  padding: 5px 15px;
+  width: 42px;
+  font-size: $dy-dynamic-field-multi-group-button-font-size;
+  color: $dy-dynamic-field-multi-group-button-color;
+  & + & {
+    margin-left: $dy-content-area-margin;
+    margin-top: 10px;
+  }
+}
+.dy-dynamic-field-multi-group__unit__fields {
+  border: 1px solid $dy-border-color-base;
+  padding: 40px 20px 40px 0;
+}

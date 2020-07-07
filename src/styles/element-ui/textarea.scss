@@ -1,0 +1,8 @@
+.el-textarea {
+  width: $--input-width;
+  .el-textarea__inner {
+    @include placeholder {
+      font-size: $dy-font-size-base-text-placeholder;
+    }
+  }
+}

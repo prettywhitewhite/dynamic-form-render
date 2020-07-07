@@ -1,0 +1,13 @@
+$dy-button-width: 120px !default;
+
+$dy-button-font-size: 12px !default;
+$dy-button-font-size-default: 14px !default;
+
+$dy-button-color: $dy-brand-primary !default;
+$dy-button-disabled-color: $white !default;
+$dy-button-primary-color: $white !default;
+
+$dy-button-background-color: #f9fafd !default;
+$dy-button-disabled-background-color: #bfc3cc;
+$dy-button-hover-background-color: lighten($dy-button-color, 20%) !default;
+$dy-button-primary-background-color: $dy-brand-primary !default;

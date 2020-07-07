@@ -1,0 +1,5 @@
+.el-tooltip__popper{
+	&.is-light{
+		color: $--tooltip-text-color;
+	}
+}

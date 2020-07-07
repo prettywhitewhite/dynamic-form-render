@@ -1,0 +1,8 @@
+.el-input {
+  width: $--input-width;
+  .el-input__inner {
+    @include placeholder {
+      font-size: $dy-font-size-base-text-placeholder;
+    }
+  }
+}
