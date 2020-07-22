@@ -5,7 +5,7 @@ import dynamicField from './components/dynamicField'
 import dynamicForm from './components/dynamicForm'
 import radioGroup from './components/radioGroup'
 import simpleSelect from './components/simpleSelect'
-import fileUploader from './components/fileUploader'
+import upload from './components/upload'
 import elementUI from 'element-ui'
 import '@styles/index.scss'
 Vue.use(elementUI)
@@ -16,7 +16,7 @@ const components = [
   dynamicForm,
   radioGroup,
   simpleSelect,
-  fileUploader,
+  upload,
 ]
 export default {
   install(Vue, options) {

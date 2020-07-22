@@ -1,22 +1,22 @@
-$dy-file-uploader-width: 290px !default;
-$dy-file-uploader-height: 102px !default;
-$dy-file-uploader-border-color: $dy-border-color-base !default;
-$dy-file-uploader-border-color-init: #afafaf !default;
-$dy-file-uploader-border-color-dropover: #afafaf !default;
-$dy-file-uploader-backgroud: #f3f3f3 !default;
-$dy-file-uploader-error-font-size: 12px !default;
+$dy-upload-width: 290px !default;
+$dy-upload-height: 102px !default;
+$dy-upload-border-color: $dy-border-color-base !default;
+$dy-upload-border-color-init: #afafaf !default;
+$dy-upload-border-color-dropover: #afafaf !default;
+$dy-upload-backgroud: #f3f3f3 !default;
+$dy-upload-error-font-size: 12px !default;
 
-.dy-file-uploader {
+.dy-upload {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: $dy-file-uploader-width;
-  height: $dy-file-uploader-height;
+  width: $dy-upload-width;
+  height: $dy-upload-height;
   font-size: 14px;
   line-height: 12px;
-  background: $dy-file-uploader-backgroud;
+  background: $dy-upload-backgroud;
   border-radius: $dy-border-radius;
   border-width: 2px;
   &.is-disabled {
@@ -30,31 +30,33 @@ $dy-file-uploader-error-font-size: 12px !default;
   }
 }
 
-.dy-file-uploader--init {
-  border: 2px dashed $dy-file-uploader-border-color-init;
+.dy-upload--init {
+  border: 2px dashed $dy-upload-border-color-init;
   &.is-upload-available {
     &:hover {
-      .dy-file-uploader__tip__icon {
+      .dy-upload__tip__icon {
         color: $dy-brand-primary;
       }
     }
   }
 }
 
-.dy-file-uploader--dropover {
-  border: 2px dashed $dy-file-uploader-border-color-dropover;
+.dy-upload--dropover {
+  border: 2px dashed $dy-upload-border-color-dropover;
+  z-index: $dy-upload-z-index;
 }
-.dy-file-uploader--checking,
-.dy-file-uploader--uploading {
+.dy-upload--checking,
+.dy-upload--uploading {
   background-color: rgba(0, 0, 0, 0.6);
   color: $white;
+  z-index: $dy-upload-z-index;
 }
 
-.dy-file-uploader--success {
+.dy-upload--success {
   background: $white;
   color: #080808;
   border: 1px solid $dy-border-color-base;
-  .dy-file-uploader__tip__icon {
+  .dy-upload__tip__icon {
     color: #353535;
   }
   &:not(.is-remove-disabled) {
@@ -66,14 +68,14 @@ $dy-file-uploader-error-font-size: 12px !default;
     }
   }
 }
-.dy-file-uploader--error {
-  border: 2px dashed $dy-file-uploader-border-color-init;
+.dy-upload--error {
+  border: 2px dashed $dy-upload-border-color-init;
 }
-.dy-file-uploader--faild {
-  border: 2px dashed $dy-file-uploader-border-color-init;
+.dy-upload--faild {
+  border: 2px dashed $dy-upload-border-color-init;
 }
 
-.dy-file-uploader__input {
+.dy-upload__input {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,18 +84,18 @@ $dy-file-uploader-error-font-size: 12px !default;
   opacity: 0;
   cursor: pointer;
 }
-.dy-file-uploader__uploader {
+.dy-upload__uploader {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.dy-file-uploader__tip__icon {
+.dy-upload__tip__icon {
   font-size: 28px;
   color: #c4c4c4;
 }
-.dy-file-uploader__tip__text {
+.dy-upload__tip__text {
   vertical-align: super;
   margin-left: 5px;
   font-size: 14px;
@@ -103,12 +105,12 @@ $dy-file-uploader-error-font-size: 12px !default;
   font-size: 12px;
   text-align: center;
 }
-.dy-file-uploader__text__limit-size {
+.dy-upload__text__limit-size {
   font-size: 15px;
   color: #1a1a1a;
   margin-top: 12px;
 }
-.dy-file-uploader__text__limit-type {
+.dy-upload__text__limit-type {
   margin-top: 12px;
 }
 .dy-file-uplaoder__remove {
@@ -120,20 +122,20 @@ $dy-file-uploader-error-font-size: 12px !default;
   right: -10px;
   cursor: pointer;
 }
-.dy-file-uploader__limit-size {
+.dy-upload__limit-size {
   margin-bottom: 10px;
 }
-.dy-file-uploader__faild__text {
+.dy-upload__faild__text {
   font-size: 14px;
   color: $dy-form-error-color;
   vertical-align: super;
   margin-left: 5px;
 }
-.dy-file-uploader__error {
+.dy-upload__error {
   position: absolute;
   left: 0;
   bottom: -22px;
   float: left;
   color: $dy-form-error-color;
-  font-size: $dy-file-uploader-error-font-size;
+  font-size: $dy-upload-error-font-size;
 }

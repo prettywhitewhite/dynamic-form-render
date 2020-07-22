@@ -5,11 +5,11 @@ then
 else
   node scripts/check-version -v $1
 fi		
-npm config set registry http://nexus.biz.weibo.com/repository/npm
+npm config set registry https://registry.npmjs.org/
 
 git add .
 git commit -m  "chore(release) version: "$PACKAGE_VERSION" ""$*"
 git push -u
 
 npm run build
-npm publish --access public --registry=http://nexus.biz.weibo.com/repository/npm-hosts
+npm publish --access public --registry=https://registry.npmjs.org/

@@ -7,7 +7,7 @@
   >
     <template v-for="(item, index) in fields">
       <dynamic-field
-        v-if="item.group && !item.field"
+        v-if="(item.group || item.display === 'group') && !item.field"
         ref="field"
         :value="iValue"
         :field="item"

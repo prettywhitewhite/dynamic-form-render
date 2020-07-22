@@ -1,8 +1,8 @@
 <template>
   <div
     :class="[
-      'dy-file-uploader',
-      `dy-file-uploader--${status}`,
+      'dy-upload',
+      `dy-upload--${status}`,
       {
         'is-disabled': disabled,
         'is-upload-available': uploadAvailable,
@@ -13,14 +13,14 @@
     <span v-show="status === 'dropover'">+ 文件拖曳到这里</span>
     <span v-show="status === 'checking'">文件检测中...</span>
     <span v-show="status === 'uploading'">文件上传中...</span>
-    <div v-show="showUploader" class="dy-file-uploader__uploader">
-      <div class="dy-file-uploader__tip">
-        <i :class="[localUploadIcon, 'dy-file-uploader__tip__icon']" />
+    <div v-show="showUploader" class="dy-upload__uploader">
+      <div class="dy-upload__tip">
+        <i :class="[localUploadIcon, 'dy-upload__tip__icon']" />
         <span v-show="status !== 'success'">
-          <span class="dy-file-uploader__faild__text" v-if="status === 'faild'"
+          <span class="dy-upload__faild__text" v-if="status === 'faild'"
             >上传失败，请重新上传</span
           >
-          <span v-else-if="showUploadTip" class="dy-file-uploader__tip__text">
+          <span v-else-if="showUploadTip" class="dy-upload__tip__text">
             {{ uploadTip }}
           </span>
         </span>
@@ -28,14 +28,14 @@
       <div class="dy-file-uplaoder__text">
         <slot name="tips"></slot>
         <p
-          class="dy-file-uploader__text__limit-type"
+          class="dy-upload__text__limit-type"
           v-if="status !== 'success' && limitText"
         >
           {{ limitText }}
         </p>
         <p
           v-else-if="status === 'success' && title"
-          class="dy-file-uploader__file-name"
+          class="dy-upload__file-name"
         >
           {{ title }}
         </p>
@@ -48,7 +48,7 @@
     <input
       v-show="uploadAvailable"
       ref="dropBox"
-      class="dy-file-uploader__input"
+      class="dy-upload__input"
       type="file"
       name="videoFile"
       :accept="accept"
@@ -62,8 +62,8 @@ import emitter from '@mixins/emitter'
 import registerComponent from '@mixins/registerComponent'
 import dropBoxMixin from '@mixins/dropBox'
 import {isPromise} from '@utils/utils'
-const DyFileUploader = {
-  name: 'DyFileUploader',
+const DyUpload = {
+  name: 'DyUpload',
   mixins: [dropBoxMixin, emitter, registerComponent],
   props: {
     value: {
@@ -129,7 +129,7 @@ const DyFileUploader = {
       default: '',
     },
     onSuccess: {
-      // 文件上传成功时钩子 （response, file）
+      // 文件上传成功时钩子 （response, Success ,Error,file）
       type: Function,
     },
     beforeUpload: {
@@ -137,7 +137,7 @@ const DyFileUploader = {
       type: Function,
     },
     httpRequest: {
-      // 覆盖默认的上传行为，可以自定义上传的实现
+      // 覆盖默认的上传行为，可以自定义上传的实现  http: {file,onSuccess,onError,handleProgress}
       type: Function,
     },
     silent: {
@@ -318,19 +318,38 @@ const DyFileUploader = {
       try {
         let {data} = await generalApi.post(this.action, formData)
         if (this.onSuccess && typeof this.onSuccess === 'function') {
-          this.onSuccess(data, this.handleSuccess, this.file)
-        } else {
+          const callbackData = this.onSuccess(
+            data,
+            this.handleSuccess,
+            this.handleFaild,
+            file
+          )
+          if (isPromise(callbackData)) {
+            return callbackData.finally(() => {
+              if (this.isStatus('uploading')) {
+                this.handleSuccess(data.url || data.fid)
+              }
+            })
+          }
+        }
+        if (this.isStatus('uploading')) {
           this.handleSuccess(data.url || data.fid)
         }
-      } catch ({data}) {
-        this.handleFaild((data || {}).message)
+      } catch (err) {
+        const errMsg = err.message || _.get(err, 'data.message')
+        this.handleFaild(errMsg)
       }
     },
     // 上传文件到指定地址
     async uploadFile(file) {
-      this.status = 'uploading'
+      this.changeStatus('uploading')
       if (this.httpRequest && typeof this.httpRequest === 'function') {
-        this.httpRequest(file)
+        this.httpRequest({
+          file: file,
+          onSuccess: this.handleSuccess,
+          onError: this.handleFaild,
+          onProgress: this.handleProgress,
+        })
       } else {
         this.defaultUploadFile(file)
       }
@@ -342,11 +361,15 @@ const DyFileUploader = {
     changeStatus(status) {
       this.status = status
     },
+    isStatus(status) {
+      return this.status === status
+    },
     emitEvent(eventType, event) {
       this.$emit(eventType, event)
     },
     handleSuccess(val) {
       this.iValue = val
+      this.changeStatus('success')
       this.$emit('success', val, this.file)
     },
     displayErrorTip(msg) {
@@ -376,5 +399,5 @@ const DyFileUploader = {
     },
   },
 }
-export default DyFileUploader
+export default DyUpload
 </script>

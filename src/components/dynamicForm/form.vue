@@ -10,7 +10,7 @@
   >
     <template v-for="(item, index) in structure">
       <dynamic-field
-        v-if="item.group && !item.field"
+        v-if="(item.group || item.display === 'group') && !item.field"
         ref="field"
         :value="iData"
         :field="item"
@@ -46,11 +46,17 @@
 <script>
 import eventHub from '@services/eventHub'
 import DynamicField from './field'
-import {fieldDefault} from './config'
+import extendedFields from './utils/extendedFields'
+import config from './config'
+let fieldDefault
 export default {
   name: 'DynamicForm',
   components: {
     DynamicField,
+  },
+  model: {
+    prop: 'data',
+    event: 'input',
   },
   provide() {
     return {
@@ -58,7 +64,7 @@ export default {
     }
   },
   props: {
-    value: {
+    data: {
       type: Object,
       default: () => ({}),
       required: false,
@@ -104,7 +110,7 @@ export default {
     },
   },
   watch: {
-    value: {
+    data: {
       handler: function(val) {
         if (!_.isEqual(this.iData, val)) {
           this.iData = val
@@ -135,12 +141,16 @@ export default {
       deep: true,
     },
   },
+  beforeCreate() {
+    fieldDefault = extendedFields.mergeWith(Object.assign({}, config))
+      .fieldDefault
+  },
   created() {
     this.init()
   },
   methods: {
     init() {
-      this.iData = this.value || {}
+      this.iData = this.data || {}
       this.registerEvents()
       transcribeStructure(this.structure, this.iData)
     },

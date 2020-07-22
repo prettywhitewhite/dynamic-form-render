@@ -24,10 +24,7 @@
       v-on="listeners"
     />
     <slot name="footer">
-      <p
-        :class="{'dy-form-field__desc': true, 'is-offset': !!field.tips}"
-        v-if="field.desc"
-      >
+      <p class="dy-form-field__desc" v-if="field.desc">
         {{ field.desc }}
       </p>
       <el-popover
@@ -51,7 +48,6 @@
 import sanitize from '@utils/sanitizeHtml'
 import {isFunction, evaluateString} from './utils/utils'
 import generateRules from './utils/generateRules'
-import config from './config'
 import extendedFields from './utils/extendedFields'
 import Emitter from '@mixins/emitter'
 import elFormItem from 'element-ui/lib/form-item'
@@ -103,7 +99,6 @@ export default {
   data() {
     return {
       iValue: '',
-      defaultProps: {},
       dispatchFormItemEvent: {
         'el.form.blur': value => {
           this.dispatch('ElFormItem', 'el.form.blur', value)
@@ -255,11 +250,20 @@ export default {
       immediate: true,
       deep: true,
     },
+    rules: {
+      handler: {
+        handler() {
+          this.$nextTick(() => {
+            this.$refs['elFormItem'] &&
+              this.$refs['elFormItem'].addValidateEvents()
+          })
+        },
+        deep: true,
+      },
+    },
   },
   beforeCreate: function() {
-    //resolve circular dependency
-    let fields = Object.assign({}, config)
-    fields = extendedFields.mergeWith(fields)
+    const fields = extendedFields.get()
 
     this.fieldTypeMap = fields.fieldTypeMap
     this.fieldDefault = fields.fieldDefault
@@ -337,25 +341,6 @@ export default {
       }
       return expression
     },
-    // setDefaultValue() {
-    //   if (
-    //     _.isNull(this.iValue) ||
-    //     _.isUndefined(this.iValue) ||
-    //     this.iValue === ''
-    //   ) {
-    //     if (!_.isUndefined(this.field.default) && this.field.default !== '') {
-    //       this.iValue = this.field.default
-    //     } else {
-    //       if (this.fieldDefault[this.field.type]) {
-    //         const value = this.fieldDefault[this.field.type].defaultValue(
-    //           this.field.config
-    //         )
-    //         !_.isUndefined(value) && (this.iValue = value)
-    //       }
-    //     }
-    //   }
-    // },
-
     validate() {
       return new Promise((resolve, reject) => {
         if (this.$refs['field'] && this.$refs['field'].validate) {

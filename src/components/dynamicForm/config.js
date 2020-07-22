@@ -6,7 +6,7 @@ import checkboxGroup from '@components/checkboxGroup'
 import contentTextarea from '@components/contentTextarea'
 import radioGroup from '@components/radioGroup'
 import simpleSelect from '@components/simpleSelect'
-import fileUploader from '@components/fileUploader'
+import upload from '@components/upload'
 import DyText from '@components/text'
 
 const components = {
@@ -17,7 +17,7 @@ const components = {
   radioGroup,
   simpleSelect,
   DyText,
-  fileUploader,
+  upload,
   radio,
   elSwitch,
 }
@@ -25,13 +25,13 @@ const fieldTypeMap = {
   input: 'elInput',
   contentTextarea: 'contentTextarea',
   select: 'simpleSelect',
-  upload: 'fileUploader',
+  upload: 'upload',
   text: 'DyText',
   switch: 'elSwitch',
-  radio,
-  radioGroup,
-  checkbox,
-  checkboxGroup,
+  radio: 'radio',
+  radioGroup: 'radioGroup',
+  checkbox: 'checkbox',
+  checkboxGroup: 'checkboxGroup',
 }
 const fieldDefault = {
   group: {

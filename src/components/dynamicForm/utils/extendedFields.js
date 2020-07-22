@@ -1,22 +1,26 @@
-let extendedFields = null
+let extendFields = null
+let mergedFields = null
 export default {
   set({fieldTypeMap, components, fieldDefault}) {
-    extendedFields = {fieldDefault, fieldTypeMap, components}
+    console.log('::', fieldDefault)
+    extendFields = {fieldDefault, fieldTypeMap, components}
   },
   get() {
-    if (!extendedFields) {
+    if (!mergedFields) {
       return {}
     }
-    return extendedFields
+    return mergedFields
   },
   mergeWith(defaultFields) {
-    const merged = Object.assign({}, defaultFields)
-    const fields = extendedFields || {}
+    mergedFields = Object.assign({}, defaultFields)
+    const fields = extendFields || {}
+    console.log(fields)
     for (const key in fields) {
       if (Object.prototype.hasOwnProperty.call(fields, key) && fields[key]) {
-        merged[key] = Object.assign(merged[key], fields[key])
+        mergedFields[key] = Object.assign(mergedFields[key], fields[key])
       }
     }
-    return merged
+
+    return mergedFields
   },
 }
