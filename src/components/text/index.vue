@@ -1,13 +1,14 @@
 <template>
-  <el-input class="dy-text" :value="iValue" v-bind="$attrs" readonly />
+  <span class="dy-text" :class="`dy-text--${type}`">
+    <i v-show="prefixIcon" :class="prefixIcon" class="dy-text__prefix-icon" />
+    {{ iValue }}
+    <i v-show="suffixIcon" :class="suffixIcon" class="dy-text__suffix-icon" />
+  </span>
 </template>
 <script>
-import elInput from 'element-ui/lib/input'
 export default {
   name: 'DyText',
-  components: {
-    elInput,
-  },
+  components: {},
   props: {
     value: {
       required: false,
@@ -15,6 +16,20 @@ export default {
     text: {
       // 强制设置显示内容
       type: String,
+    },
+    type: {
+      type: String,
+      default: 'info', // 'success','warning','error'
+    },
+    prefixIcon: {
+      // 文本头部图标
+      type: String,
+      default: '',
+    },
+    suffixIcon: {
+      // 文本尾部图标
+      type: String,
+      default: '',
     },
   },
   computed: {

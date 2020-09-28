@@ -1,31 +1,48 @@
 <template>
   <el-form-item
     ref="elFormItem"
-    v-if="show && !hide"
+    v-if="isShowFormItem"
     class="dy-form-field"
-    :label="field.label"
     :label-width="field.label !== undefined ? labelWidth : '0px'"
     :class="className"
     :prop="path"
-    :rules="show ? rules : null"
+    :rules="isShowFormItem ? rules : null"
     v-on="dispatchFormItemEvent"
   >
+    <span
+      slot="label"
+      class="dy-form-field__label"
+      v-if="field.label || field.prefixIcon || field.suffixIcon"
+    >
+      <i
+        v-if="field['prefixIcon']"
+        class="dy-form-field__label__prefix-icon"
+        :class="field.prefixIcon"
+      />
+      {{ field.label }}
+      <i
+        v-if="field['suffixIcon']"
+        class="dy-form-field__label__suffix-icon"
+        :class="field.suffixIcon"
+      />
+    </span>
     <component
       :is="componentName"
+      v-if="componentName"
       ref="field"
-      v-model.trim="iValue"
+      v-model="iValue"
       v-bind="props"
       :fields="field.fields"
       :path="path"
       :disabled="computedDisabled"
-      :class="compoentClassName"
+      :class="componentClassName"
       :style="computedStyle"
       :labelWidth="labelWidth"
       v-on="listeners"
     />
     <slot name="footer">
-      <p class="dy-form-field__desc" v-if="field.desc">
-        {{ field.desc }}
+      <p class="dy-form-field__desc" v-if="componentDesc">
+        {{ componentDesc }}
       </p>
       <el-popover
         placement="top-start"
@@ -46,16 +63,17 @@
 </template>
 <script>
 import sanitize from '@utils/sanitizeHtml'
-import {isFunction, evaluateString} from './utils/utils'
+import {canEvaluate, evaluateString} from './utils/utils'
 import generateRules from './utils/generateRules'
 import extendedFields from './utils/extendedFields'
 import Emitter from '@mixins/emitter'
 import elFormItem from 'element-ui/lib/form-item'
 import elPopover from 'element-ui/lib/popover'
-import dynamicFieldGroup from './fieldGroup'
-import dynamicFieldMultiGroup from './fieldMultiGroup'
+import DynamicFieldGroup from './fieldGroup'
+import DynamicFieldMultiGroup from './fieldMultiGroup'
 export default {
   name: 'DynamicField',
+  inheritAttrs: false,
   componentName: 'DynamicField',
   mixins: [Emitter],
   provide() {
@@ -89,7 +107,7 @@ export default {
       default: '',
     },
     parentValue: {
-      type: Object,
+      type: [Object, Array],
     },
     disabled: {
       type: Boolean,
@@ -114,8 +132,8 @@ export default {
   computed: {
     componentName() {
       return this.isGroup
-        ? 'dynamicFieldGroup'
-        : this.fieldTypeMap[this.field.type] || this.field.type
+        ? 'DynamicFieldGroup'
+        : this.fieldTypeMap[this.field.type]
     },
     computedStyle() {
       return this.offset !== 0
@@ -130,7 +148,7 @@ export default {
         : null
     },
     props() {
-      const props = _.omit(this.config, 'on')
+      const props = _.omit(this.config, 'on', 'class')
       if (this.isGroup && this.inline) {
         props.inline = true
       }
@@ -139,6 +157,7 @@ export default {
     events() {
       return _.get(this.config, 'on')
     },
+
     offset() {
       let offset = Number(_.get(this.field, 'offset'))
       return _.isNumber(offset) ? offset : 0
@@ -148,11 +167,7 @@ export default {
         ? {...this.$listeners, ...this.events}
         : this.$listeners
     },
-    compoentClassName() {
-      return !_.isUndefined(this.field.class)
-        ? this.convertValue(this.field.class)
-        : null
-    },
+
     dependence() {
       return !_.isUndefined(this.field.dependence)
         ? this.convertValue(this.field.dependence)
@@ -179,17 +194,33 @@ export default {
         (this.props && this.props.disabled)
       )
     },
+    componentClassName() {
+      return !_.isUndefined(_.get(this.config, 'class'))
+        ? this.convertValue(_.get(this.config, 'class'))
+        : null
+    },
+    componentDesc() {
+      return !_.isUndefined(this.field.desc)
+        ? this.convertValue(this.field.desc)
+        : ''
+    },
+    fieldClassName() {
+      return !_.isUndefined(this.field.class)
+        ? this.convertValue(this.field.class)
+        : null
+    },
     className() {
       let path = this.path.replace('.', '-')
       const classNames = []
-      path && classNames.push('dy-form-field--' + path)
+
+      path && classNames.push('dy-form-field-path--' + path)
       if (this.field.type === 'hidden') {
         classNames.push('is-hidden')
       }
-      if (this.errorMsg) {
-        classNames.push('is-error')
-      }
-      return classNames.join(' ')
+      return classNames.concat(this.fieldClassName)
+    },
+    isShowFormItem() {
+      return this.show && !this.hide
     },
     formData() {
       return this.dynamicForm.iData
@@ -197,8 +228,12 @@ export default {
     context() {
       return this.dynamicForm.formContext
     },
+
     rules() {
-      let rules = generateRules(this.field.rules)
+      const _rules = canEvaluate(this.field.rules)
+        ? this.convertValue(this.field.rules)
+        : this.field.rules
+      let rules = generateRules(_rules)
       if (!_.isEmpty(this.fields)) {
         this.fields.forEach(field => {
           if (field.defaultRules) {
@@ -226,12 +261,14 @@ export default {
         }
       },
       deep: true,
+      immediate: true,
     },
-    field: {
-      handler() {
-        // this.init()
+    isShowFormItem: {
+      handler(isShow) {
+        if (!(this.dynamicForm || {}).disabled) {
+          isShow ? this.initFieldValue() : this.resetFieldValue()
+        }
       },
-      deep: true,
     },
     setValue: {
       handler(val) {
@@ -239,10 +276,14 @@ export default {
           this.$nextTick(() => {
             if (_.isArray(val)) {
               val.forEach(item => {
-                _.get(item, 'condition') && (this.iValue = _.get(item, 'set'))
+                _.get(item, 'condition') &&
+                  !_.isEqual(this.iValue, _.get(item, 'set')) &&
+                  (this.iValue = _.get(item, 'set'))
               })
             } else {
-              _.get(val, 'condition') && (this.iValue = _.get(val, 'set'))
+              _.get(val, 'condition') &&
+                !_.isEqual(this.iValue, _.get(val, 'set')) &&
+                (this.iValue = _.get(val, 'set'))
             }
           })
         }
@@ -264,15 +305,14 @@ export default {
   },
   beforeCreate: function() {
     const fields = extendedFields.get()
-
     this.fieldTypeMap = fields.fieldTypeMap
     this.fieldDefault = fields.fieldDefault
     this.$options.components = Object.assign(
       {
         'el-form-item': elFormItem,
         'el-popover': elPopover,
-        dynamicFieldGroup: dynamicFieldGroup,
-        multiGroup: dynamicFieldMultiGroup,
+        DynamicFieldGroup: DynamicFieldGroup,
+        multiGroup: DynamicFieldMultiGroup,
       },
       fields.components
     )
@@ -285,9 +325,18 @@ export default {
       this.$refs['elFormItem'] && this.$refs['elFormItem'].addValidateEvents()
     })
   },
+  beforeDestroy() {
+    this.removeEvents()
+  },
   methods: {
     init() {
+      this.setDefault()
       this.registryEvents()
+    },
+    setDefault() {
+      if (_.isUndefined(this.iValue) || this.iValue === '') {
+        this.iValue = this.initValue(this.field)
+      }
     },
     registryEvents() {
       this.$on('dynamicField.addField', field => {
@@ -302,12 +351,16 @@ export default {
         }
       })
     },
+    removeEvents() {
+      this.$off('dynamicField.addField')
+      this.$off('dynamicField.removeField')
+    },
     convertValue(expression) {
       if (!_.isUndefined(this.$attrs['multi-group-index'])) {
         this.context['_multiGroupIndex'] = this.$attrs['multi-group-index']
       }
       if (typeof expression === 'string') {
-        const _expression = isFunction(expression)
+        const _expression = canEvaluate(expression)
         if (_expression !== false) {
           try {
             return evaluateString(
@@ -340,6 +393,90 @@ export default {
         })
       }
       return expression
+    },
+    resetFieldValue() {
+      let copyValue = _.cloneDeep(this.iValue)
+      if (this.isGroup) {
+        this.field.reset
+          ? this.transcribeStructure(this.field.fields, copyValue, true, true)
+          : this.transcribeStructure(this.field.fields, copyValue, true, false)
+      } else {
+        if (!this.field.reset) {
+          return
+        }
+        copyValue = this.cleanValue(this.field)
+      }
+      if (!_.isEqual(copyValue, this.iValue)) {
+        this.iValue = copyValue
+      }
+    },
+    initFieldValue() {
+      let copyValue = _.cloneDeep(this.iValue)
+      if (this.isGroup) {
+        this.field.reset
+          ? this.transcribeStructure(this.field.fields, copyValue, false, true)
+          : this.transcribeStructure(this.field.fields, copyValue, false, false)
+      } else {
+        if (!this.field.reset) {
+          return
+        }
+        copyValue = this.initValue(this.field)
+      }
+      if (!_.isEqual(copyValue, this.iValue)) {
+        this.iValue = copyValue
+      }
+    },
+    cleanValue(field) {
+      if (!_.isUndefined(field.cleanValue)) {
+        return field.cleanValue
+      }
+      let cleanValue = ''
+      const actualType = field.group ? 'group' : field.type
+      if (
+        this.fieldDefault[actualType] &&
+        this.fieldDefault[actualType].cleanValue
+      ) {
+        cleanValue = this.fieldDefault[actualType].cleanValue()
+      }
+      return cleanValue
+    },
+
+    initValue(field) {
+      if (canEvaluate(field.default)) {
+        return this.convertValue(field.default)
+      } else if (!_.isUndefined(field.default) && field.default !== '') {
+        return field.default
+      }
+      const actualType = field.group ? 'group' : field.type
+      let value
+      if (this.fieldDefault[actualType]) {
+        value = this.fieldDefault[actualType].defaultValue(field.config)
+      }
+      return value || ''
+    },
+    transcribeStructure(structure, data, isReset, isGlobalExecute) {
+      if (!_.isArray(structure) || _.isEmpty(structure)) {
+        return
+      }
+      structure.forEach(field => {
+        const isExecute = isGlobalExecute || field.reset
+        const actualType = field.group ? 'group' : field.type
+        const key = field.field
+        if (actualType === 'group') {
+          key
+            ? this.transcribeStructure(
+                field.fields,
+                data[key],
+                isReset,
+                isGlobalExecute
+              )
+            : this.transcribeStructure(field.fields, data, isReset, isExecute)
+        } else {
+          if (key && isExecute) {
+            data[key] = isReset ? this.cleanValue(field) : this.initValue(field)
+          }
+        }
+      })
     },
     validate() {
       return new Promise((resolve, reject) => {

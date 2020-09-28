@@ -34,10 +34,10 @@
           {{ limitText }}
         </p>
         <p
-          v-else-if="status === 'success' && title"
+          v-else-if="status === 'success' && (title || localFileName)"
           class="dy-upload__file-name"
         >
-          {{ title }}
+          {{ localFileName || title }}
         </p>
       </div>
       <i
@@ -152,8 +152,10 @@ const DyUpload = {
     },
     /**
      *  event
-     *  remove: 删除文件
      *  fileChange: (file)=>{}上传源文件变化
+     *  remove  删除文件事件
+     *  faild   上传失败事件
+     *  success（url, file） 上传成功事件
      */
   },
   data() {
@@ -232,6 +234,9 @@ const DyUpload = {
   methods: {
     init() {
       this.status = this.value ? 'success' : 'init' // init、dropover、uploading 、success 、error、faild
+      if (!this.value) {
+        this.$refs.dropBox && (this.$refs.dropBox.value = '')
+      }
       this.validateFormItem()
     },
     handleChange(e) {
@@ -349,6 +354,7 @@ const DyUpload = {
           onSuccess: this.handleSuccess,
           onError: this.handleFaild,
           onProgress: this.handleProgress,
+          checkStatus: this.isStatus,
         })
       } else {
         this.defaultUploadFile(file)
@@ -364,9 +370,6 @@ const DyUpload = {
     isStatus(status) {
       return this.status === status
     },
-    emitEvent(eventType, event) {
-      this.$emit(eventType, event)
-    },
     handleSuccess(val) {
       this.iValue = val
       this.changeStatus('success')
@@ -380,7 +383,7 @@ const DyUpload = {
     handleFaild(errMsg = '') {
       this.clearFile()
       this.changeStatus('faild')
-      this.emitEvent('faild')
+      this.$emit('faild', errMsg || '上传失败，请重试')
       this.validateFormItem(errMsg || '上传失败，请重试')
     },
     // 删除已上传文件
@@ -388,7 +391,8 @@ const DyUpload = {
       if (!this.disabled && !this.disabledRemove) {
         this.clearFile()
         this.changeStatus('init')
-        this.emitEvent('remove')
+        this.$emit('remove')
+        this.$emit('fileChange')
       }
     },
     clearFile() {

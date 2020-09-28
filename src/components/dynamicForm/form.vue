@@ -6,17 +6,42 @@
     :label-position="labelPosition"
     :label-width="labelWidth"
     :disabled="disabled"
+    :readonly="readonly"
     @submit.native.prevent
   >
-    <template v-for="(item, index) in structure">
+    <div
+      v-for="(item, index) in structure"
+      :key="index"
+      :class="[
+        `dy-form-fields--${index}`,
+        item.id ? `dy-form-fields--${item.id}` : null,
+      ]"
+    >
+      <slot name="head" v-bind="getSlotData(item, index)" />
       <dynamic-field
-        v-if="(item.group || item.display === 'group') && !item.field"
+        v-if="item.field"
         ref="field"
+        :class="{'dy-form-section': !!item.group && item.display === 'section'}"
+        v-model="iData[item.field]"
+        :field="item"
+        :path="item.field"
+        :parent-value="iData"
+        :label-width="labelWidth"
+        :key="`dynamic-field--${index}--${item.field}`"
+        :disabled="disabled"
+        :is-group="!!item.group"
+        :inline="!!item.inline"
+        @input="inputHandle"
+      />
+      <dynamic-field
+        v-else-if="item.group || item.display === 'group'"
+        ref="field"
+        :class="{'dy-form-section': item.display === 'section'}"
         :value="iData"
         :field="item"
         :label-width="labelWidth"
         :parent-value="iData"
-        :key="`dynamic-field-group--${index}`"
+        :key="`dynamic-field--${index}--group`"
         :disabled="disabled"
         :is-group="!!item.group"
         :inline="!!item.inline"
@@ -25,32 +50,26 @@
       <dynamic-field
         v-else
         ref="field"
-        v-model="iData[item.field]"
         :field="item"
-        :path="item.field"
-        :parent-value="iData"
         :label-width="labelWidth"
-        :key="
-          item.field
-            ? `dynamic-field-${item.field}--${index}`
-            : `dynamic-field--${index}`
-        "
+        :parent-value="iData"
+        :key="`dynamic-field--${index}`"
         :disabled="disabled"
-        :is-group="!!item.group"
-        :inline="!!item.inline"
-        @input="inputHandle"
       />
-    </template>
+      <slot name="footer" v-bind="getSlotData(item, index)" />
+    </div>
   </el-form>
 </template>
 <script>
 import eventHub from '@services/eventHub'
+import {canEvaluate} from './utils/utils'
 import DynamicField from './field'
 import extendedFields from './utils/extendedFields'
 import config from './config'
 let fieldDefault
 export default {
   name: 'DynamicForm',
+  inheritAttrs: false,
   components: {
     DynamicField,
   },
@@ -76,6 +95,10 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
+      default: false,
+    },
+    readonly: {
+      type: Boolean,
       default: false,
     },
     labelWidth: {
@@ -113,16 +136,25 @@ export default {
     data: {
       handler: function(val) {
         if (!_.isEqual(this.iData, val)) {
-          this.iData = val
+          this.iData = _.cloneDeep(val)
         }
       },
       immediate: true,
+      deep: true,
     },
     iData: {
       handler: function(val) {
-        this.$emit('input', val)
+        if (!_.isEqual(val, this.data)) {
+          this.$emit('input', val)
+        }
       },
-      immdediate: true,
+      deep: true,
+      immediate: true,
+    },
+    structure: {
+      handler() {
+        this.init()
+      },
       deep: true,
     },
     context: {
@@ -148,11 +180,21 @@ export default {
   created() {
     this.init()
   },
+  mounted() {
+    this.$emit('register', this)
+  },
+  beforeDestroy() {
+    this.$emit('beforeDestroy', this)
+  },
+  destroyed() {
+    this.$emit('destroyed')
+  },
   methods: {
     init() {
-      this.iData = this.data || {}
       this.registerEvents()
-      transcribeStructure(this.structure, this.iData)
+      const data = _.cloneDeep(this.iData)
+      transcribeStructure(this.structure, data)
+      this.iData = Object.assign({}, data)
     },
     registerEvents() {
       eventHub.off('context-change')
@@ -167,14 +209,17 @@ export default {
       this.iData = Object.assign({}, this.iData, val)
     },
     validate() {
-      return this.$refs['form']
-        .validate()
-        .then(valid => {
-          return valid
-        })
-        .catch(() => {
-          return false
-        })
+      if (this.$refs['form'] && this.$refs['form'].validate) {
+        return this.$refs['form']
+          .validate()
+          .then(valid => {
+            return valid
+          })
+          .catch(() => {
+            return false
+          })
+      }
+      return true
     },
     resetFields() {
       this.$refs['form'].resetFields()
@@ -182,26 +227,44 @@ export default {
     clearValidate() {
       this.$refs['form'].clearValidate()
     },
+    getSlotData(field, index) {
+      return !_.isUndefined(field.id) && field.id !== ''
+        ? {
+            id: field.id,
+            index: index,
+          }
+        : {
+            index: index,
+          }
+    },
   },
 }
+
 function transcribeStructure(structure, iData) {
   structure.forEach(field => {
     const actualType = field.group ? 'group' : field.type
     const key = field.field
     if (key) {
       if (_.isUndefined(iData[key]) || iData[key] === '') {
-        if (!_.isUndefined(field.default)) {
+        if (
+          !_.isUndefined(field.default) &&
+          field.default !== '' &&
+          !canEvaluate(field.default)
+        ) {
           iData[key] = field.default
-          return
-        }
-        if (fieldDefault[actualType]) {
+        } else if (fieldDefault[actualType]) {
           iData[key] = fieldDefault[actualType].defaultValue(field.config) || ''
-          if (!_.isEmpty(field.fields)) {
+          if (
+            !_.isEmpty(field.fields) &&
+            fieldDefault[actualType].itemDataScope
+          ) {
             transcribeStructure(
               field.fields,
               fieldDefault[actualType].itemDataScope(iData[key])
             )
           }
+        } else {
+          iData[key] = ''
         }
       }
     } else if (actualType === 'group' && !_.isEmpty(field.fields)) {

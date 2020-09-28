@@ -1,4 +1,5 @@
 import elInput from 'element-ui/lib/input'
+import DyInput from '@components/input'
 import checkbox from 'element-ui/lib/checkbox'
 import radio from 'element-ui/lib/radio'
 import elSwitch from 'element-ui/lib/switch'
@@ -8,6 +9,7 @@ import radioGroup from '@components/radioGroup'
 import simpleSelect from '@components/simpleSelect'
 import upload from '@components/upload'
 import DyText from '@components/text'
+import DyTextarea from '@components/textarea'
 
 const components = {
   elInput,
@@ -20,9 +22,12 @@ const components = {
   upload,
   radio,
   elSwitch,
+  DyInput,
+  DyTextarea,
 }
 const fieldTypeMap = {
-  input: 'elInput',
+  elInput: 'elInput',
+  input: 'DyInput',
   contentTextarea: 'contentTextarea',
   select: 'simpleSelect',
   upload: 'upload',
@@ -32,10 +37,15 @@ const fieldTypeMap = {
   radioGroup: 'radioGroup',
   checkbox: 'checkbox',
   checkboxGroup: 'checkboxGroup',
+  textarea: 'DyTextarea',
+  multiGroup: 'multiGroup',
 }
 const fieldDefault = {
   group: {
     defaultValue: function() {
+      return {}
+    },
+    cleanValue: () => {
       return {}
     },
     itemDataScope: function(defaultValue) {
@@ -50,14 +60,19 @@ const fieldDefault = {
     },
   },
   multiGroup: {
-    defaultValue: config => {
-      if (config && config.defaultCount) {
-        return new Array(config.defaultCount).fill({})
-      }
-      return [{}]
+    defaultValue: () => {
+      return []
     },
-    itemDataScope: function(defaultValue) {
-      return defaultValue[0]
+    cleanValue: () => {
+      return []
+    },
+  },
+  checkboxGroup: {
+    defaultValue: () => {
+      return []
+    },
+    cleanValue: () => {
+      return []
     },
   },
 }

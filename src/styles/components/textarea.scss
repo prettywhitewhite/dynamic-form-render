@@ -1,0 +1,15 @@
+.dy-textarea {
+	position: relative;
+	width: $dy-width-base;
+}
+.dy-textarea__count {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+	color: $dy-text-color-tip;
+	font-size: 12px;
+	line-height: 12px;
+	.is-overflow {
+		color: $dy-brand-danger;
+	}
+}

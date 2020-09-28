@@ -7,10 +7,9 @@ $dy-content-textarea-color: $dy-form-text-color !default;
 $dy-content-textarea-font-family: PingFangSC-Regular, sans-serif !default;
 
 $dy-content-textarea-input-min-height: calc(
-  #{$dy-content-texearea-min-rows} * #{$dy-font-size-base} * #{$dy-content-textarea-line-height} +
-    20px
+  #{$dy-content-texearea-min-rows} * #{$dy-font-size-base} * #{$dy-content-textarea-line-height} + 20px
 );
-dy-content-textarea {
+.dy-content-textarea {
   width: $--input-width;
 }
 .dy-content-textarea__input {

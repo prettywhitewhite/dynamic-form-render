@@ -1,4 +1,5 @@
-$dy-input-width: 460px !default;
+$dy-width-base: 460px !default;
+$dy-input-width: $dy-width-base !default;
 $dy-input-height: 34px !default;
 
 $dy-input-label-color: $dy-text-color !default;

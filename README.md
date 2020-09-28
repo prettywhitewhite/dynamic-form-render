@@ -74,6 +74,49 @@ export default {
 </script>
 ```
 
+### 注册业务组件
+
+```
+Vue.use(dynamicFormRender,registerConfig)
+```
+
+通过配置 registerConfig 注册组件
+
+| Prop         | Type   | Description       |
+| ------------ | ------ | ----------------- |
+| components   | Object | 需要注册的组件    |
+| fieldTypeMap | Object | type 和组件对应表 |
+| fieldDefault | Object | 组件默认值对照表  |
+
+```
+import elInput from 'element-ui/lib/input'
+import checkbox from 'element-ui/lib/checkbox'
+const registerConfig = {
+    components:{
+        elInput,
+        checkbox
+    },
+    fieldTypeMap:{
+        input: 'elInput',
+        checkbox: 'checkbox',
+    },
+    fieldDefault:{
+         group: {
+            defaultValue: function() {
+              return {}
+            },
+            cleanValue: () => {
+              return {}
+            },
+            itemDataScope: function(defaultValue) {
+              return defaultValue
+            },
+        },
+    }
+}
+
+```
+
 ### API
 
 | Prop | Type | Default | Description |
@@ -81,6 +124,7 @@ export default {
 | data | Object | {} | 表单数据对象，可使用 v-model 实现数据双向绑定 |
 | structure | Array | [] | 表单渲染配置对象 |
 | disabled | Boolean | false | 禁用表单 |
+| readonly | Boolean | false | 只读 |
 | labelWidth | String | 140px | 表单域标签的宽度，例如 '50px'。</br>作为 Form 直接子元素的 form-item 会继承该值。支持 auto |
 | labelPosition | String | right | 表单域标签的位置，如果值为 left 或者 right 时，<br>则需要设置 label-width |
 | context | Object | {} | 表单上下文 |
@@ -97,9 +141,34 @@ export default {
 | fields | Array | false | group 属性不为空时 或 type 类型为 multiGroup 时有效 |
 | config | object | false | 组件配置项, 属性 on 可配置事件 |
 | rules | object 或 Array | false | 表单项校验规则，与 elForm 保持一致 |
+| prefixIcon | String | false | 表单项的标签名头部图标 |
+| suffixIcon | String | false | 表单项的标签名尾部图标 |
 | tip | string | false | 表单项提示文案 |
 | desc | string | false | 表单项描述 |
+| reset | Boolean | false | 设置为 true 时，当表单项隐藏时清空已填内容。默认 false |
 | default | any | false | 表单项默认值 |
+
+1. ##### dependence 属性
+
+- 通过配置 dependence 中的 value 属性对表单项关联 field 设置值，使用方法如下：  
+   condition 为表单式，当 condition 为 true 时 field 的值被设置为 set
+
+```
+dependence:{
+    value:{
+        condition:'{{rootValue.setValue}}',
+        set:'需要设置的值'
+    }
+}
+```
+
+2. ##### config 属性
+
+- 通过 config 中 on 属性配置事件
+
+3. ##### rules 属性
+
+- 配置 word:true 区分字与字节
 
 ### 表单基础组件 type 对照表
 
@@ -113,6 +182,7 @@ export default {
 | radio           | ElRadio                | 单选按钮     | 详见 el-radio    |
 | switch          | ElSwitch               | 开关选择器   | 详见 el-switch   |
 | upload          | DyUplod                | 上传组件     |
+| textarea        | DyTextarea             | textarea     |
 | contentTextarea | DyContentTextarea      | 博文输入框   |
 | multiGroup      | DynamicFieldMultiGroup | 多组表单项组 |
 

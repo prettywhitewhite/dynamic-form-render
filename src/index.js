@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import DyInput from './components/input'
+import DyTextarea from './components/textarea'
 import checkboxGroup from './components/checkboxGroup'
 import contentTextarea from './components/contentTextarea'
 import dynamicField from './components/dynamicField'
@@ -10,6 +12,8 @@ import elementUI from 'element-ui'
 import '@styles/index.scss'
 Vue.use(elementUI)
 const components = [
+  DyInput,
+  DyTextarea,
   checkboxGroup,
   contentTextarea,
   dynamicField,

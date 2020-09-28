@@ -33,7 +33,7 @@ export default {
           placeholder: '请输入姓名',
         },
         dependence: {
-          show: (rootValue, parentValue, context) => rootValue.show,
+          show: rootValue => rootValue.show,
         },
         rules: {
           required: true,

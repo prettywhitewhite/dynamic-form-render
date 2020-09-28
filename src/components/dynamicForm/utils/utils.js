@@ -7,7 +7,7 @@ export const evaluateString = (string, rootValue, parentValue, context) => {
     `return (${string})`
   )(rootValue, parentValue, context)
 }
-export const isFunction = function(func) {
+export const canEvaluate = function(func) {
   if (typeof func === 'function') {
     return true
   }

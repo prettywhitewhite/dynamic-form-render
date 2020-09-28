@@ -1,17 +1,18 @@
 import {isEmpty, isObjectLike, isArray, isPlainObject, cloneDeep} from 'lodash'
-export const generateOptions = function(data, map, ignoredKeys = []) {
+export const generateOptions = function(propData, map, ignoredKeys = []) {
+  let data = propData
   if (isEmpty(data) && !isObjectLike(data)) {
     return []
   }
-  if (isEmpty(map)) {
-    return data
-  }
   if (isArray(data)) {
-    return formatByProps(data, {id: 'id', text: 'text'}, map)
+    if (!isEmpty(map)) {
+      data = formatByProps(data, {id: 'id', text: 'text'}, map)
+    }
+    return data.filter(item => !item.hide)
   }
   const options = []
   for (const key in data) {
-    if (data.hasOwnProperty(key) && !ignoredKeys.includes(key)) {
+    if (data.hasOwnProperty(key) && !ignoredKeys.includes(key) && !item.hide) {
       const item = Object.assign({}, data[key], {$key: key})
       const option = formatByProps(item, {id: 'id', text: 'text'}, map)
       options.push(option)

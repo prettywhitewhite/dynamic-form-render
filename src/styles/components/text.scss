@@ -1,5 +1,20 @@
+$dy-text-color-info: $dy-text-color-dark !default;
+$dy-text-color-success: $dy-brand-success !default;
+$dy-text-color-warning: $dy-brand-warning !default;
+$dy-text-color-danger: $dy-brand-danger !default;
 .dy-text {
-  .el-input__inner {
-    border: none;
-  }
+  color: $dy-text-color-info;
+  font-size: $dy-font-size-base;
+}
+.dy-text--info {
+  color: $dy-text-color-info;
+}
+.dy-text--success {
+  color: $dy-text-color-success;
+}
+.dy-text--warning {
+  color: $dy-text-color-warning;
+}
+.dy-text--error {
+  color: $dy-text-color-danger;
 }

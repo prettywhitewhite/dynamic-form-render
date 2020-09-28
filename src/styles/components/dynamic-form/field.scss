@@ -1,5 +1,8 @@
 .dy-form-field {
   position: relative;
+  &.is-hidden {
+    display: none;
+  }
 }
 .dy-form-field__desc {
   font-size: 12px;
@@ -16,11 +19,4 @@
   color: $dy-text-color-tip;
   margin-left: 6px;
   transform: rotate(180deg);
-}
-.dy-form-field {
-  &.is-error {
-    .dy-upload {
-      border: 1px solid $dy-form-error-color;
-    }
-  }
 }

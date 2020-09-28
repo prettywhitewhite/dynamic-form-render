@@ -1,0 +1,28 @@
+$dy-form-section-padding-top: 20px !default;
+$dy-form-section-padding-botton: 30px !default;
+$dy-form-section-padding-right: 30px !default;
+$dy-form-section-padding-left: 30px !default;
+$dy-form-section-border-color: $dy-border-color-base !default;
+$dy-form-section-label-font-size: 16px !default;
+$dy-form-section-label-color: $dy-text-color-dark !default;
+$dy-form-section-content-margin-top: 40px !default;
+
+.dy-form-section {
+  border: 1px solid $dy-form-section-border-color;
+  box-shadow: 0 2px 4px 0 rgba(144, 150, 179, 0.08);
+  padding: $dy-form-section-padding-top $dy-form-section-padding-right
+    $dy-form-section-padding-botton $dy-form-section-padding-left;
+  border-radius: $dy-border-radius;
+  background-color: $white;
+  > .el-form-item__label {
+    float: none;
+    font-size: $dy-form-section-label-font-size;
+    color: $dy-form-section-label-color;
+    font-weight: bold;
+    line-height: 100%;
+  }
+  > .el-form-item__content {
+    margin-top: $dy-form-section-content-margin-top;
+    margin-left: 0 !important;
+  }
+}
