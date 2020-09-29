@@ -1,6 +1,6 @@
 {
   "name": "dynamic-form-render",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/dynamic-form-render.common.js",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -47,5 +47,12 @@
     "type": "git",
     "url": "https://github.com/prettywhitewhite/dynamic-form-render"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "vue",
+    "element-ui",
+    "form",
+    "dynamic-form",
+    "form-render"
+  ]
 }
