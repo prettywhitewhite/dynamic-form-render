@@ -1,6 +1,6 @@
 {
   "name": "dynamic-form-render",
-  "version": "1.0.7",
+  "version": "1.0.6",
   "main": "dist/dynamic-form-render.common.js",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -9,7 +9,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "release": "scripty",
-    "publish": "scripty"
+    "docs:publish": "sh release-docs"
   },
   "dependencies": {
     "async-validator": "^1.11.5",

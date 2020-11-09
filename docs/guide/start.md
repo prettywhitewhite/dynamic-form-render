@@ -5,7 +5,7 @@
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | data | Object | {} | 表单数据对象，可使用 v-model 实现数据双向绑定 |
-| structure | Array | [] | 详见[表单渲染配置对象](/start/start.md#Structure) |
+| structure | Array | [] | 详见[表单渲染配置对象](/guide/start.html#structure) |
 | disabled | Boolean | false | 禁用表单 |
 | readonly | Boolean | false | 只读表单 |
 | labelWidth | String | 140px | 表单域标签的宽度，例如 '50px'。作为 Form 直接子元素的 form-item 会继承该值。支持 auto |
