@@ -8,16 +8,11 @@ fi
 
 npm --no-git-tag-version version patch
 PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')
-echo "chore(release) version:"$PACKAGE_VERSION "commit:"$1
-
 
 npm config set registry https://registry.npmjs.org/
 
-
 git add .
 git commit -m  "chore(release) version: "$PACKAGE_VERSION" ""commit:""$1"
-
-exit 1 
 git push -u
 
 npm run build
