@@ -1,24 +1,25 @@
 {
   "name": "dynamic-form-render",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/dynamic-form-render.common.js",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/index.js",
     "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "release": "scripty"
   },
   "dependencies": {
+    "async-validator": "^1.11.5",
     "axios": "^0.19.2",
-    "core-js": "^3.6.5",
     "element-theme-chalk": "^2.13.2",
     "element-ui": "^2.13.2",
     "lodash": "^4.17.20",
     "qrcode": "^1.4.4",
     "sanitize-html": "^1.25.0",
     "stylelint": "^13.6.0",
-    "terser-webpack-plugin-legacy": "^1.2.3",
-    "vue": "^2.6.11",
+    "terser-webpack-plugin-legacy": "^1.2.5",
     "vue-router": "^3.3.2"
   },
   "devDependencies": {
@@ -41,7 +42,9 @@
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.17.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12",
+    "vuepress": "^1.7.1"
   },
   "repository": {
     "type": "git",

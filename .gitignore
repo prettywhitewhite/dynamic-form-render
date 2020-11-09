@@ -1,6 +1,7 @@
 /node_modules/*
 /.vscode
 /dist
+/docs/.vuepress/dist/*
 
 # local env files
 .env.local

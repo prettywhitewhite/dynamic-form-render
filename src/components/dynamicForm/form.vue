@@ -17,7 +17,7 @@
         item.id ? `dy-form-fields--${item.id}` : null,
       ]"
     >
-      <slot name="head" v-bind="getSlotData(item, index)" />
+      <slot name="sectionHead" v-bind="getSlotData(item, index)" />
       <dynamic-field
         v-if="item.field"
         ref="field"
@@ -56,8 +56,9 @@
         :key="`dynamic-field--${index}`"
         :disabled="disabled"
       />
-      <slot name="footer" v-bind="getSlotData(item, index)" />
+      <slot name="sectionFooter" v-bind="getSlotData(item, index)" />
     </div>
+    <slot name="footer" />
   </el-form>
 </template>
 <script>
