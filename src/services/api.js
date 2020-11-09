@@ -1,18 +1,12 @@
 import qs from 'qs'
 import axios from 'axios'
 import {Notification} from 'element-ui'
-import {getUrlParam} from '@utils/url'
-let userId = getUrlParam('user_id')
 const isCancel = axios.isCancel
 const TRACE_ID_HEADER = 'x-ragnar-traceid'
 
 const defaultConfigs = {
   timeout: 40000,
   paramsSerializer: function(params) {
-    // 附身登录
-    if (typeof params['user_id'] === 'undefined' && userId) {
-      params['user_id'] = userId
-    }
     return qs.stringify(params)
   },
   headers: {
@@ -20,9 +14,6 @@ const defaultConfigs = {
       'Content-Type': 'application/json',
     },
   },
-}
-function setUserId(idString) {
-  userId = getUrlParam(idString)
 }
 function getErrorInfo(error) {
   let url = ''
@@ -145,7 +136,6 @@ export default {
   factory: factory,
   cancelToken: axios.CancelToken,
   isCancel: isCancel,
-  setUserId,
   http,
   httpSilent,
 }
