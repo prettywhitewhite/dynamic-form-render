@@ -192,6 +192,7 @@ const renderJson = [
             max: 4,
             message: '自定义按钮名称不能超过4字',
             trigger: 'blur',
+            word: true,
           },
         ],
       },

@@ -4,10 +4,8 @@ import checkbox from 'element-ui/lib/checkbox'
 import radio from 'element-ui/lib/radio'
 import elSwitch from 'element-ui/lib/switch'
 import checkboxGroup from '@components/checkboxGroup'
-import contentTextarea from '@components/contentTextarea'
 import radioGroup from '@components/radioGroup'
 import simpleSelect from '@components/simpleSelect'
-import upload from '@components/upload'
 import DyText from '@components/text'
 import DyTextarea from '@components/textarea'
 
@@ -15,11 +13,9 @@ const components = {
   elInput,
   checkbox,
   checkboxGroup,
-  contentTextarea,
   radioGroup,
   simpleSelect,
   DyText,
-  upload,
   radio,
   elSwitch,
   DyInput,
@@ -28,9 +24,7 @@ const components = {
 const fieldTypeMap = {
   elInput: 'elInput',
   input: 'DyInput',
-  contentTextarea: 'contentTextarea',
   select: 'simpleSelect',
-  upload: 'upload',
   text: 'DyText',
   switch: 'elSwitch',
   radio: 'radio',
