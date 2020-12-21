@@ -119,10 +119,10 @@ export default {
       iValue: '',
       dispatchFormItemEvent: {
         'el.form.blur': value => {
-          this.dispatch('ElFormItem', 'el.form.blur', value)
+          this.dispatch('elFormItem', 'el.form.blur', value)
         },
         'el.form.change': value => {
-          this.dispatch('ElFormItem', 'el.form.change', value)
+          this.dispatch('elFormItem', 'el.form.change', value)
         },
       },
       fields: [],

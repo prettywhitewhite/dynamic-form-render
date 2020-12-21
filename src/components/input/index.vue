@@ -7,8 +7,12 @@
   />
 </template>
 <script>
+import elInput from 'element-ui/lib/input'
 export default {
   name: 'DyInput',
+  components:{
+    elInput
+  },
   props: {
     value: {
       type: [String, Number],

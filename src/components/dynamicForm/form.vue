@@ -64,6 +64,7 @@
 <script>
 import eventHub from '@services/eventHub'
 import {canEvaluate} from './utils/utils'
+import elForm from 'element-ui/lib/form'
 import DynamicField from './field'
 import extendedFields from './utils/extendedFields'
 import config from './config'
@@ -72,6 +73,7 @@ export default {
   name: 'DynamicForm',
   inheritAttrs: false,
   components: {
+    elForm,
     DynamicField,
   },
   model: {

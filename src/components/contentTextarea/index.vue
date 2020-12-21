@@ -40,9 +40,13 @@
 <script>
 import registerComponent from '@mixins/registerComponent'
 import wbCharCount from '@utils/wbCharCount'
+import elInput from 'element-ui/lib/input'
 export default {
   name: 'DyContentTextarea',
   mixins: [registerComponent],
+  components:{
+    elInput
+  },
   props: {
     value: {
       type: String,

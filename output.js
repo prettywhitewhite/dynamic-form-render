@@ -1,6 +1,6 @@
 {
   mode: 'development',
-  context: '/Users/chunmei6/sina/own/dynamic-form',
+  context: '/Users/chunmei6/code/dynamic-form-render',
   node: {
     setImmediate: false,
     process: 'mock',
@@ -11,25 +11,23 @@
     child_process: 'empty'
   },
   output: {
-    path: '/Users/chunmei6/sina/own/dynamic-form/dist',
-    filename: 'lib/[name].js',
+    path: '/Users/chunmei6/code/dynamic-form-render/dist',
+    filename: 'js/[name].js',
     publicPath: '/',
-    chunkFilename: 'js/[name].js',
-    library: 'dynamicForm',
-    libraryTarget: 'commonjs2'
+    chunkFilename: 'js/[name].js'
   },
   resolve: {
     alias: {
-      '@': '/Users/chunmei6/sina/own/dynamic-form/src',
+      '@': '/Users/chunmei6/code/dynamic-form-render/src',
       vue$: 'vue/dist/vue.runtime.esm.js',
-      '@src': '/Users/chunmei6/sina/own/dynamic-form/src',
-      '@assets': '/Users/chunmei6/sina/own/dynamic-form/src/assets',
-      '@components': '/Users/chunmei6/sina/own/dynamic-form/src/components',
-      '@data': '/Users/chunmei6/sina/own/dynamic-form/src/data',
-      '@mixins': '/Users/chunmei6/sina/own/dynamic-form/src/mixins',
-      '@services': '/Users/chunmei6/sina/own/dynamic-form/src/services',
-      '@styles': '/Users/chunmei6/sina/own/dynamic-form/src/styles',
-      '@utils': '/Users/chunmei6/sina/own/dynamic-form/src/utils'
+      '@src': '/Users/chunmei6/code/dynamic-form-render/src',
+      '@assets': '/Users/chunmei6/code/dynamic-form-render/src/assets',
+      '@components': '/Users/chunmei6/code/dynamic-form-render/src/components',
+      '@data': '/Users/chunmei6/code/dynamic-form-render/src/data',
+      '@mixins': '/Users/chunmei6/code/dynamic-form-render/src/mixins',
+      '@services': '/Users/chunmei6/code/dynamic-form-render/src/services',
+      '@styles': '/Users/chunmei6/code/dynamic-form-render/src/styles',
+      '@utils': '/Users/chunmei6/code/dynamic-form-render/src/utils'
     },
     extensions: [
       '.mjs',
@@ -41,8 +39,8 @@
     ],
     modules: [
       'node_modules',
-      '/Users/chunmei6/sina/own/dynamic-form/node_modules',
-      '/Users/chunmei6/sina/own/dynamic-form/node_modules/@vue/cli-service/node_modules'
+      '/Users/chunmei6/code/dynamic-form-render/node_modules',
+      '/Users/chunmei6/code/dynamic-form-render/node_modules/@vue/cli-service/node_modules'
     ],
     plugins: [
       {
@@ -64,10 +62,10 @@
   },
   resolveLoader: {
     modules: [
-      '/Users/chunmei6/sina/own/dynamic-form/node_modules/@vue/cli-plugin-babel/node_modules',
+      '/Users/chunmei6/code/dynamic-form-render/node_modules/@vue/cli-plugin-babel/node_modules',
       'node_modules',
-      '/Users/chunmei6/sina/own/dynamic-form/node_modules',
-      '/Users/chunmei6/sina/own/dynamic-form/node_modules/@vue/cli-service/node_modules'
+      '/Users/chunmei6/code/dynamic-form-render/node_modules',
+      '/Users/chunmei6/code/dynamic-form-render/node_modules/@vue/cli-service/node_modules'
     ],
     plugins: [
       {
@@ -85,20 +83,20 @@
         test: /\.vue$/,
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/cache-loader/dist/cjs.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/cache-loader/dist/cjs.js',
             options: {
-              cacheDirectory: '/Users/chunmei6/sina/own/dynamic-form/node_modules/.cache/vue-loader',
-              cacheIdentifier: '34b1cd68'
+              cacheDirectory: '/Users/chunmei6/code/dynamic-form-render/node_modules/.cache/vue-loader',
+              cacheIdentifier: '48e928b7'
             }
           },
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-loader/lib/index.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-loader/lib/index.js',
             options: {
               compilerOptions: {
                 whitespace: 'condense'
               },
-              cacheDirectory: '/Users/chunmei6/sina/own/dynamic-form/node_modules/.cache/vue-loader',
-              cacheIdentifier: '34b1cd68'
+              cacheDirectory: '/Users/chunmei6/code/dynamic-form-render/node_modules/.cache/vue-loader',
+              cacheIdentifier: '48e928b7'
             }
           }
         ]
@@ -108,11 +106,11 @@
         test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/url-loader/dist/cjs.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/url-loader/dist/cjs.js',
             options: {
               limit: 4096,
               fallback: {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/file-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/file-loader/dist/cjs.js',
                 options: {
                   name: 'img/[name].[hash:8].[ext]'
                 }
@@ -126,7 +124,7 @@
         test: /\.(svg)(\?.*)?$/,
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/file-loader/dist/cjs.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/file-loader/dist/cjs.js',
             options: {
               name: 'img/[name].[hash:8].[ext]'
             }
@@ -138,11 +136,11 @@
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/url-loader/dist/cjs.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/url-loader/dist/cjs.js',
             options: {
               limit: 4096,
               fallback: {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/file-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/file-loader/dist/cjs.js',
                 options: {
                   name: 'media/[name].[hash:8].[ext]'
                 }
@@ -156,11 +154,11 @@
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/url-loader/dist/cjs.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/url-loader/dist/cjs.js',
             options: {
               limit: 4096,
               fallback: {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/file-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/file-loader/dist/cjs.js',
                 options: {
                   name: 'fonts/[name].[hash:8].[ext]'
                 }
@@ -204,14 +202,14 @@
             resourceQuery: /module/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -221,7 +219,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -236,21 +234,21 @@
             resourceQuery: /\?vue/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -265,14 +263,14 @@
             test: /\.module\.\w+$/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -282,7 +280,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -296,21 +294,21 @@
           {
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -331,14 +329,14 @@
             resourceQuery: /module/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -348,7 +346,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -363,21 +361,21 @@
             resourceQuery: /\?vue/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -392,14 +390,14 @@
             test: /\.module\.\w+$/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -409,7 +407,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -423,21 +421,21 @@
           {
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -458,14 +456,14 @@
             resourceQuery: /module/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -475,7 +473,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -484,7 +482,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false
                 }
@@ -496,21 +494,21 @@
             resourceQuery: /\?vue/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -519,7 +517,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false
                 }
@@ -531,14 +529,14 @@
             test: /\.module\.\w+$/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -548,7 +546,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -557,7 +555,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false
                 }
@@ -568,21 +566,21 @@
           {
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -591,7 +589,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false
                 }
@@ -609,14 +607,14 @@
             resourceQuery: /module/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -626,7 +624,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -635,7 +633,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   sassOptions: {
@@ -650,21 +648,21 @@
             resourceQuery: /\?vue/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -673,7 +671,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   sassOptions: {
@@ -688,14 +686,14 @@
             test: /\.module\.\w+$/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -705,7 +703,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -714,7 +712,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   sassOptions: {
@@ -728,21 +726,21 @@
           {
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -751,7 +749,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/sass-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   sassOptions: {
@@ -772,14 +770,14 @@
             resourceQuery: /module/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -789,7 +787,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -810,21 +808,21 @@
             resourceQuery: /\?vue/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -845,14 +843,14 @@
             test: /\.module\.\w+$/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -862,7 +860,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -882,21 +880,21 @@
           {
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -923,14 +921,14 @@
             resourceQuery: /module/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -940,7 +938,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -949,7 +947,7 @@
                 }
               },
               {
-                loader: 'stylus-loader',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/stylus-loader/index.js',
                 options: {
                   sourceMap: false,
                   preferPathResolver: 'webpack'
@@ -962,21 +960,21 @@
             resourceQuery: /\?vue/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -985,7 +983,7 @@
                 }
               },
               {
-                loader: 'stylus-loader',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/stylus-loader/index.js',
                 options: {
                   sourceMap: false,
                   preferPathResolver: 'webpack'
@@ -998,14 +996,14 @@
             test: /\.module\.\w+$/,
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -1015,7 +1013,7 @@
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -1024,7 +1022,7 @@
                 }
               },
               {
-                loader: 'stylus-loader',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/stylus-loader/index.js',
                 options: {
                   sourceMap: false,
                   preferPathResolver: 'webpack'
@@ -1036,21 +1034,21 @@
           {
             use: [
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/vue-style-loader/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/css-loader/dist/cjs.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
                 }
               },
               {
-                loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/postcss-loader/src/index.js',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/postcss-loader/src/index.js',
                 options: {
                   sourceMap: false,
                   plugins: [
@@ -1059,7 +1057,7 @@
                 }
               },
               {
-                loader: 'stylus-loader',
+                loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/stylus-loader/index.js',
                 options: {
                   sourceMap: false,
                   preferPathResolver: 'webpack'
@@ -1077,14 +1075,14 @@
         ],
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/cache-loader/dist/cjs.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/cache-loader/dist/cjs.js',
             options: {
-              cacheDirectory: '/Users/chunmei6/sina/own/dynamic-form/node_modules/.cache/babel-loader',
-              cacheIdentifier: 'd6b9471c'
+              cacheDirectory: '/Users/chunmei6/code/dynamic-form-render/node_modules/.cache/babel-loader',
+              cacheIdentifier: '8c118540'
             }
           },
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/babel-loader/lib/index.js'
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/babel-loader/lib/index.js'
           }
         ]
       },
@@ -1094,11 +1092,11 @@
         test: /\.(vue|(j|t)sx?)$/,
         exclude: [
           /node_modules/,
-          '/Users/chunmei6/sina/own/dynamic-form/node_modules/@vue/cli-service/lib'
+          '/Users/chunmei6/code/dynamic-form-render/node_modules/@vue/cli-service/lib'
         ],
         use: [
           {
-            loader: '/Users/chunmei6/sina/own/dynamic-form/node_modules/eslint-loader/index.js',
+            loader: '/Users/chunmei6/code/dynamic-form-render/node_modules/eslint-loader/index.js',
             options: {
               extensions: [
                 '.js',
@@ -1106,10 +1104,10 @@
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: '18aa36d2',
+              cacheIdentifier: 'f0fa4014',
               emitWarning: false,
               emitError: false,
-              eslintPath: '/Users/chunmei6/sina/own/dynamic-form/node_modules/eslint',
+              eslintPath: '/Users/chunmei6/code/dynamic-form-render/node_modules/eslint',
               formatter: undefined
             }
           }
@@ -1134,10 +1132,7 @@
           reuseExistingChunk: true
         }
       },
-      hidePathInfo: true,
-      minSize: 30000,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3
+      chunks: 'async'
     },
     minimizer: [
       {
@@ -1186,7 +1181,7 @@
         }
       }
     ],
-    minimize: true
+    minimize: false
   },
   plugins: [
     /* config.plugin('vue-loader') */
@@ -1216,7 +1211,7 @@
     /* config.plugin('html-index') */
     new HtmlWebpackPlugin(
       {
-        title: 'dynamic-form',
+        title: 'dynamic-form-render',
         templateParameters: function () { /* omitted long function */ },
         chunks: [
           'chunk-vendors',
@@ -1265,8 +1260,8 @@
     new CopyPlugin(
       [
         {
-          from: '/Users/chunmei6/sina/own/dynamic-form/public',
-          to: '/Users/chunmei6/sina/own/dynamic-form/dist',
+          from: '/Users/chunmei6/code/dynamic-form-render/public',
+          to: '/Users/chunmei6/code/dynamic-form-render/dist',
           toType: 'dir',
           ignore: [
             '.DS_Store',
@@ -1277,93 +1272,26 @@
           ]
         }
       ]
-    )
+    ),
+    {
+      definitions: {
+        _: 'lodash'
+      }
+    }
   ],
   entry: {
     index: [
-      '/Users/chunmei6/sina/own/dynamic-form/example/index.js'
+      '/Users/chunmei6/code/dynamic-form-render/example/index.js'
     ]
   },
-  externals: {
-    vue: {
-      root: 'Vue',
-      commonjs: 'vue',
-      commonjs2: 'vue',
-      amd: 'vue'
-    },
-    lodash: {
-      root: '_',
-      commonjs: 'lodash',
-      commonjs2: 'lodash',
-      amd: 'lodash'
-    },
-    axios: 'axios',
-    elementThemeChalk: 'element-theme-chalk',
-    'element-ui/lib/pagination': 'element-ui/lib/pagination',
-    'element-ui/lib/dialog': 'element-ui/lib/dialog',
-    'element-ui/lib/autocomplete': 'element-ui/lib/autocomplete',
-    'element-ui/lib/dropdown': 'element-ui/lib/dropdown',
-    'element-ui/lib/dropdown-menu': 'element-ui/lib/dropdown-menu',
-    'element-ui/lib/dropdown-item': 'element-ui/lib/dropdown-item',
-    'element-ui/lib/menu': 'element-ui/lib/menu',
-    'element-ui/lib/submenu': 'element-ui/lib/submenu',
-    'element-ui/lib/menu-item': 'element-ui/lib/menu-item',
-    'element-ui/lib/menu-item-group': 'element-ui/lib/menu-item-group',
-    'element-ui/lib/input': 'element-ui/lib/input',
-    'element-ui/lib/input-number': 'element-ui/lib/input-number',
-    'element-ui/lib/radio': 'element-ui/lib/radio',
-    'element-ui/lib/radio-group': 'element-ui/lib/radio-group',
-    'element-ui/lib/radio-button': 'element-ui/lib/radio-button',
-    'element-ui/lib/checkbox': 'element-ui/lib/checkbox',
-    'element-ui/lib/checkbox-button': 'element-ui/lib/checkbox-button',
-    'element-ui/lib/checkbox-group': 'element-ui/lib/checkbox-group',
-    'element-ui/lib/switch': 'element-ui/lib/switch',
-    'element-ui/lib/select': 'element-ui/lib/select',
-    'element-ui/lib/option': 'element-ui/lib/option',
-    'element-ui/lib/option-group': 'element-ui/lib/option-group',
-    'element-ui/lib/button': 'element-ui/lib/button',
-    'element-ui/lib/button-group': 'element-ui/lib/button-group',
-    'element-ui/lib/table': 'element-ui/lib/table',
-    'element-ui/lib/table-column': 'element-ui/lib/table-column',
-    'element-ui/lib/date-picker': 'element-ui/lib/date-picker',
-    'element-ui/lib/time-select': 'element-ui/lib/time-select',
-    'element-ui/lib/time-picker': 'element-ui/lib/time-picker',
-    'element-ui/lib/popover': 'element-ui/lib/popover',
-    'element-ui/lib/tooltip': 'element-ui/lib/tooltip',
-    'element-ui/lib/message-box': 'element-ui/lib/message-box',
-    'element-ui/lib/breadcrumb': 'element-ui/lib/breadcrumb',
-    'element-ui/lib/breadcrumb-item': 'element-ui/lib/breadcrumb-item',
-    'element-ui/lib/form': 'element-ui/lib/form',
-    'element-ui/lib/form-item': 'element-ui/lib/form-item',
-    'element-ui/lib/tabs': 'element-ui/lib/tabs',
-    'element-ui/lib/tab-pane': 'element-ui/lib/tab-pane',
-    'element-ui/lib/tag': 'element-ui/lib/tag',
-    'element-ui/lib/tree': 'element-ui/lib/tree',
-    'element-ui/lib/alert': 'element-ui/lib/alert',
-    'element-ui/lib/notification': 'element-ui/lib/notification',
-    'element-ui/lib/slider': 'element-ui/lib/slider',
-    'element-ui/lib/loading': 'element-ui/lib/loading',
-    'element-ui/lib/icon': 'element-ui/lib/icon',
-    'element-ui/lib/row': 'element-ui/lib/row',
-    'element-ui/lib/col': 'element-ui/lib/col',
-    'element-ui/lib/upload': 'element-ui/lib/upload',
-    'element-ui/lib/progress': 'element-ui/lib/progress',
-    'element-ui/lib/spinner': 'element-ui/lib/spinner',
-    'element-ui/lib/message': 'element-ui/lib/message',
-    'element-ui/lib/badge': 'element-ui/lib/badge',
-    'element-ui/lib/card': 'element-ui/lib/card',
-    'element-ui/lib/rate': 'element-ui/lib/rate',
-    'element-ui/lib/steps': 'element-ui/lib/steps',
-    'element-ui/lib/step': 'element-ui/lib/step',
-    'element-ui/lib/carousel': 'element-ui/lib/carousel',
-    'element-ui/lib/scrollbar': 'element-ui/lib/scrollbar',
-    'element-ui/lib/carousel-item': 'element-ui/lib/carousel-item',
-    'element-ui/lib/collapse': 'element-ui/lib/collapse',
-    'element-ui/lib/collapse-item': 'element-ui/lib/collapse-item',
-    'element-ui/lib/cascader': 'element-ui/lib/cascader',
-    'element-ui/lib/color-picker': 'element-ui/lib/color-picker',
-    'element-ui/lib/transfer': 'element-ui/lib/transfer',
-    'element-ui/lib/container': 'element-ui/lib/container',
-    'element-ui/lib/aside': 'element-ui/lib/aside'
+  devtool: 'eval-source-map',
+  devServer: {
+    disableHostCheck: true,
+    overlay: false,
+    host: '0.0.0.0',
+    port: '80',
+    hot: true,
+    compress: true,
+    open: false
   }
 }

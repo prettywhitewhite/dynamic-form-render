@@ -14,9 +14,13 @@
   </div>
 </template>
 <script>
+import elInput from 'element-ui/lib/input'
 import wbCharCount from '@utils/wbCharCount'
 export default {
   name: 'DyTextarea',
+  components: {
+    elInput,
+  },
   props: {
     value: {},
     showWordLimit: {

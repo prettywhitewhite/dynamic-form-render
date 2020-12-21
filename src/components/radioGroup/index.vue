@@ -22,9 +22,17 @@
   </el-radio-group>
 </template>
 <script>
+import elRadioGroup from 'element-ui/lib/radio-group'
+import elRadioButton from 'element-ui/lib/radio-button'
+import elRadio from 'element-ui/lib/radio'
 import {generateOptions} from '@utils/data'
 export default {
   name: 'DyRadioGroup',
+  components:{
+    elRadioGroup,
+    elRadioButton,
+    elRadio
+  },
   props: {
     value: {
       type: [Number, String],

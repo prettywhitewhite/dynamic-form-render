@@ -44,11 +44,13 @@
   </div>
 </template>
 <script>
+import elButton from 'element-ui/lib/button'
 import extendedFields from './utils/extendedFields'
 import DynamicFieldGroup from './fieldGroup'
 export default {
   name: 'DynamicFieldMultiGroup',
   components: {
+    elButton,
     DynamicFieldGroup,
   },
   model: {

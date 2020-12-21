@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin-legacy')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const elementExternals = require('./elementUIDependencies')
+
 const exampleConfig = {
   devtool: 'eval-source-map',
   optimization: {
@@ -57,6 +59,7 @@ const libConfig = {
     new TerserPlugin({
       terserOptions: {compress: {drop_console: true}},
     }),
+    new BundleAnalyzerPlugin(),
   ],
   externals: externals,
 }

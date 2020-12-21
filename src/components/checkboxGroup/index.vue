@@ -17,10 +17,18 @@
   </el-checkbox-group>
 </template>
 <script>
+import elCheckboxGroup from 'element-ui/lib/checkbox-group'
+import elCheckboxButton from 'element-ui/lib/checkbox-button'
+import elCheckbox from 'element-ui/lib/checkbox'
 import {generateOptions} from '@utils/data'
 export default {
   name: 'DyCheckboxGroup',
   inheritAttrs: false,
+  components:{
+    elCheckboxGroup,
+    elCheckboxButton,
+    elCheckbox
+  },
   props: {
     value: {
       type: [Array, String],

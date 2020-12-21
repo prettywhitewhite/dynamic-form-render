@@ -1,6 +1,6 @@
 import qs from 'qs'
 import axios from 'axios'
-import {Notification} from 'element-ui'
+import {Notification} from 'element-ui/lib/notification'
 const isCancel = axios.isCancel
 const TRACE_ID_HEADER = 'x-ragnar-traceid'
 

@@ -14,9 +14,13 @@
   </div>
 </template>
 <script>
+import elButton from 'element-ui/lib/button'
 import struct from './data/demoStruct.js'
 export default {
   name: 'App',
+  components:{
+    elButton
+  },
   data() {
     const renderStructure = [
       {
