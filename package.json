@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "async-validator": "^1.11.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "element-theme-chalk": "^2.13.2",
     "element-ui": "^2.13.2",
     "lodash": "^4.17.20",
