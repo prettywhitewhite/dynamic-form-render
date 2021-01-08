@@ -335,9 +335,8 @@ export default {
     },
     setDefault() {
       if (
-        this.isShowFormItem &&
-        this.iValue !== undefined &&
-        this.iValue !== ''
+        (this.dynamicForm || {}).disabled ||
+        (this.isShowFormItem && this.iValue !== undefined && this.iValue !== '')
       ) {
         return
       }
