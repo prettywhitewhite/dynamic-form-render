@@ -119,10 +119,10 @@ export default {
       iValue: '',
       dispatchFormItemEvent: {
         'el.form.blur': value => {
-          this.dispatch('elFormItem', 'el.form.blur', value)
+          this.dispatch('ElFormItem', 'el.form.blur', value)
         },
         'el.form.change': value => {
-          this.dispatch('elFormItem', 'el.form.change', value)
+          this.dispatch('ElFormItem', 'el.form.change', value)
         },
       },
       fields: [],
@@ -266,7 +266,7 @@ export default {
     isShowFormItem: {
       handler(isShow) {
         if (!(this.dynamicForm || {}).disabled) {
-          isShow ? this.initFieldValue() : this.resetFieldValue()
+          this.resetField(!isShow)
         }
       },
     },
@@ -334,9 +334,14 @@ export default {
       this.registryEvents()
     },
     setDefault() {
-      if (_.isUndefined(this.iValue) || this.iValue === '') {
-        this.iValue = this.initValue(this.field)
+      if (
+        this.isShowFormItem &&
+        this.iValue !== undefined &&
+        this.iValue !== ''
+      ) {
+        return
       }
+      this.resetField(!this.isShowFormItem)
     },
     registryEvents() {
       this.$on('dynamicField.addField', field => {
@@ -394,33 +399,20 @@ export default {
       }
       return expression
     },
-    resetFieldValue() {
+    resetField(isClean) {
       let copyValue = _.cloneDeep(this.iValue)
+      const isReset = this.field.clean !== false
       if (this.isGroup) {
-        this.field.reset
-          ? this.transcribeStructure(this.field.fields, copyValue, true, true)
-          : this.transcribeStructure(this.field.fields, copyValue, true, false)
+        this.transcribeStructure(this.field.fields, copyValue, isClean, isReset)
+      } else if (
+        isReset &&
+        !extendedFields.get().unlinkageFieldType.includes(this.field.type)
+      ) {
+        copyValue = isClean
+          ? this.cleanValue(this.field)
+          : this.initValue(this.field)
       } else {
-        if (!this.field.reset) {
-          return
-        }
-        copyValue = this.cleanValue(this.field)
-      }
-      if (!_.isEqual(copyValue, this.iValue)) {
-        this.iValue = copyValue
-      }
-    },
-    initFieldValue() {
-      let copyValue = _.cloneDeep(this.iValue)
-      if (this.isGroup) {
-        this.field.reset
-          ? this.transcribeStructure(this.field.fields, copyValue, false, true)
-          : this.transcribeStructure(this.field.fields, copyValue, false, false)
-      } else {
-        if (!this.field.reset) {
-          return
-        }
-        copyValue = this.initValue(this.field)
+        return
       }
       if (!_.isEqual(copyValue, this.iValue)) {
         this.iValue = copyValue
@@ -428,38 +420,43 @@ export default {
     },
     cleanValue(field) {
       if (!_.isUndefined(field.cleanValue)) {
-        return field.cleanValue
+        return canEvaluate(field.cleanValue)
+          ? this.convertValue(field.cleanValue)
+          : field.cleanValue
       }
-      let cleanValue = ''
-      const actualType = field.group ? 'group' : field.type
-      if (
-        this.fieldDefault[actualType] &&
-        this.fieldDefault[actualType].cleanValue
-      ) {
-        cleanValue = this.fieldDefault[actualType].cleanValue()
+      let value = ''
+      const getCleanValueFunc = _.get(
+        this.fieldDefault[field.type],
+        'cleanValue'
+      )
+      if (_.isFunction(getCleanValueFunc)) {
+        value = getCleanValueFunc()
       }
-      return cleanValue
+      return value
     },
 
     initValue(field) {
-      if (canEvaluate(field.default)) {
-        return this.convertValue(field.default)
-      } else if (!_.isUndefined(field.default) && field.default !== '') {
-        return field.default
+      if (!_.isUndefined(field.default)) {
+        return canEvaluate(field.default)
+          ? this.convertValue(field.default)
+          : field.default
       }
-      const actualType = field.group ? 'group' : field.type
-      let value
-      if (this.fieldDefault[actualType]) {
-        value = this.fieldDefault[actualType].defaultValue(field.config)
+      let value = ''
+      const getDefaultValueFunc = _.get(
+        this.fieldDefault[field.type],
+        'defaultValue'
+      )
+      if (_.isFunction(getDefaultValueFunc)) {
+        value = getDefaultValueFunc(field.config)
       }
-      return value || ''
+      return value
     },
-    transcribeStructure(structure, data, isReset, isGlobalExecute) {
+    transcribeStructure(structure, data, isClean, isGlobalExecute) {
       if (!_.isArray(structure) || _.isEmpty(structure)) {
         return
       }
       structure.forEach(field => {
-        const isExecute = isGlobalExecute || field.reset
+        const isExecute = isGlobalExecute && field.clean !== false
         const actualType = field.group ? 'group' : field.type
         const key = field.field
         if (actualType === 'group') {
@@ -467,14 +464,16 @@ export default {
             ? this.transcribeStructure(
                 field.fields,
                 data[key],
-                isReset,
+                isClean,
                 isGlobalExecute
               )
-            : this.transcribeStructure(field.fields, data, isReset, isExecute)
-        } else {
-          if (key && isExecute) {
-            data[key] = isReset ? this.cleanValue(field) : this.initValue(field)
-          }
+            : this.transcribeStructure(field.fields, data, isClean, isExecute)
+        } else if (
+          key &&
+          isExecute &&
+          !extendedFields.get().unlinkageFieldType.includes(field.type)
+        ) {
+          data[key] = isClean ? this.cleanValue(field) : this.initValue(field)
         }
       })
     },

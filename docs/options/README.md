@@ -487,7 +487,7 @@ const renderStructure = [
 - 默认 `-`  
   表单项描述文案
 
-  ### reset
+  ### clean
 
 - 类型 `boolean`
 - 默认 `false`  

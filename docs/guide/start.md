@@ -30,7 +30,7 @@
 | suffixIcon | String | false | 表单项的标签名尾部图标 |
 | tip | string | false | 表单项提示文案 |
 | desc | string | false | 表单项描述 |
-| reset | Boolean | false | 设置为 true 时，当表单项隐藏时清空已填内容。默认 false |
+| clean | Boolean | false | 设置为 true 时，当表单项隐藏时清空已填内容。默认 false |
 | default | any | false | 表单项默认值 |
 | display | string | false | 配置表单项的展示形式，可设置为'section'或'group' |
 

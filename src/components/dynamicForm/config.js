@@ -70,5 +70,6 @@ const fieldDefault = {
     },
   },
 }
-export {fieldTypeMap, fieldDefault, components}
-export default {fieldTypeMap, fieldDefault, components}
+const unlinkageFieldType = [`text`, `hidden`]
+export {fieldTypeMap, fieldDefault, components, unlinkageFieldType}
+export default {fieldTypeMap, fieldDefault, components, unlinkageFieldType}
