@@ -56,13 +56,12 @@
           class="el-icon-warning dy-form-field__tooltip__icon"
           slot="reference"
         ></i>
-        <div v-html="sanitize(field.tips)" />
+        <div v-html="field.tips" />
       </el-popover>
     </slot>
   </el-form-item>
 </template>
 <script>
-import sanitize from '@utils/sanitizeHtml'
 import {canEvaluate, evaluateString} from './utils/utils'
 import generateRules from './utils/generateRules'
 import extendedFields from './utils/extendedFields'
@@ -126,7 +125,6 @@ export default {
         },
       },
       fields: [],
-      sanitize,
     }
   },
   computed: {
