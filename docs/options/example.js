@@ -1,4 +1,8 @@
+import elButton from 'element-ui/lib/button'
 export default {
+  components: {
+    elButton,
+  },
   data() {
     const renderStructure1 = [
       {
