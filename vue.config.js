@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin-legacy')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 const elementExternals = require('./elementUIDependencies')
 
 const exampleConfig = {

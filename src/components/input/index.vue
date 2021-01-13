@@ -10,8 +10,8 @@
 import elInput from 'element-ui/lib/input'
 export default {
   name: 'DyInput',
-  components:{
-    elInput
+  components: {
+    elInput,
   },
   props: {
     value: {

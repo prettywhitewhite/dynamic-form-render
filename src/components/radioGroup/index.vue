@@ -28,10 +28,10 @@ import elRadio from 'element-ui/lib/radio'
 import {generateOptions} from '@utils/data'
 export default {
   name: 'DyRadioGroup',
-  components:{
+  components: {
     elRadioGroup,
     elRadioButton,
-    elRadio
+    elRadio,
   },
   props: {
     value: {

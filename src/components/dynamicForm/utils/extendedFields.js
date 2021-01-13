@@ -1,7 +1,7 @@
 let extendFields = null
 let mergedFields = null
 export default {
-  set({fieldTypeMap, components, fieldDefault ,unlinkageFieldType}) {
+  set({fieldTypeMap, components, fieldDefault, unlinkageFieldType}) {
     extendFields = {fieldDefault, fieldTypeMap, components, unlinkageFieldType}
   },
   get() {

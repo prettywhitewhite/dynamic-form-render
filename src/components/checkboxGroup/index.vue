@@ -24,10 +24,10 @@ import {generateOptions} from '@utils/data'
 export default {
   name: 'DyCheckboxGroup',
   inheritAttrs: false,
-  components:{
+  components: {
     elCheckboxGroup,
     elCheckboxButton,
-    elCheckbox
+    elCheckbox,
   },
   props: {
     value: {

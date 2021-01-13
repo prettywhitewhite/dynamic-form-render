@@ -1,8 +1,8 @@
 <template>
   <span class="dy-text" :class="`dy-text--${type}`">
-    <i v-show="prefixIcon" :class="prefixIcon" class="dy-text__prefix-icon" />
+    <i v-if="prefixIcon" :class="prefixIcon" class="dy-text__prefix-icon" />
     {{ iValue }}
-    <i v-show="suffixIcon" :class="suffixIcon" class="dy-text__suffix-icon" />
+    <i v-if="suffixIcon" :class="suffixIcon" class="dy-text__suffix-icon" />
   </span>
 </template>
 <script>

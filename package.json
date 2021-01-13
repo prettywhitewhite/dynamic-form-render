@@ -1,17 +1,18 @@
 {
   "name": "dynamic-form-render",
   "version": "1.1.2",
-  "main": "dist/dynamic-form-render.common.js",
   "scripts": {
-    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/index.js",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "docs:dev": "vuepress dev docs",
+    "analyz": "npm_config_report=true npm run build",
+    "dev": "vue-cli-service serve",
     "docs:build": "vuepress build docs",
-    "release": "scripty",
+    "docs:dev": "vuepress dev docs",
     "docs:publish": "sh release-docs",
-    "analyz": "npm_config_report=true npm run build"
+    "release": "scripty"
   },
+  "main": "dist/dynamic-form-render.common.js",
   "dependencies": {
     "async-validator": "^1.11.5",
     "axios": "^0.19.2",
@@ -27,8 +28,10 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.10",
     "@vue/cli-service": "~4.4.0",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
     "compare-versions": "^3.6.0",
@@ -50,17 +53,17 @@
     "vuepress": "^1.7.1",
     "webpack-cli": "^4.2.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/prettywhitewhite/dynamic-form-render"
-  },
   "homepage": "https://prettywhitewhite.github.io/dynamic-form-render",
-  "license": "ISC",
   "keywords": [
     "vue",
     "element-ui",
     "form",
     "dynamic-form",
     "form-render"
-  ]
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prettywhitewhite/dynamic-form-render"
+  }
 }
