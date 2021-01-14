@@ -35,6 +35,7 @@ Object.keys(components).forEach(function(key) {
   externals[sourcePath] = `dynamic-form-render/dist/lib/${key}`
 })
 module.exports = {
+  productionSourceMap: false,
   chainWebpack: config => {
     config.entryPoints.delete('app')
     config
@@ -48,7 +49,6 @@ module.exports = {
       })
       .end()
   },
-
   configureWebpack: {
     entry: components,
     output: {
