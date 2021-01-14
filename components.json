@@ -1,0 +1,13 @@
+{
+	"DynamicForm": "./src/components/dynamicForm/index.js",
+	"DynamicField": "./src/components/dynamicField/index.js",
+	"DycheckboxGroup":"./src/components/checkboxGroup/index.vue",
+	"DyInput":"./src/components/input/index.vue",
+	"DyRadioGroup":"./src/components/radioGroup/index.vue",
+	"DySimpleSelect":"./src/components/simpleSelect/index.vue",
+	"DyText":"./src/components/text/index.vue",
+	"DyTextarea":"./src/components/textarea/index.vue",
+	"registerComponent": "./src/mixins/registerComponent.js",
+	"emitter": "./src/mixins/emitter.js",
+	"index": "./src/index.js"
+}

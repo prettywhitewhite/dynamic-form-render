@@ -31,8 +31,12 @@ new Vue({
 ## 一个简单的例子
 
 <script>
+import elButton from 'element-ui/lib/button'
 export default {
   name: 'App',
+  components:{
+    elButton
+  },
   data() {
     const renderStructure = [
       {

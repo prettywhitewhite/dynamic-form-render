@@ -1,5 +1,5 @@
-import '../../dist/dynamic-form-render.css'
-import DynamicForm from '../../dist/dynamic-form-render.umd'
+import '../../dist/css/index.css'
+import DynamicForm from '../../dist/lib/index.js'
 export default({
 	Vue,
 	options, 

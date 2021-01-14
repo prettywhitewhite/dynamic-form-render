@@ -116,7 +116,11 @@
 #### 例 1.为输入框配置 `placeholder` 属性
 
 <script>
+import elButton from 'element-ui/lib/button'
 export default {
+  components:{
+    elButton
+  },
   data() {
     const renderStructure1 = [
       {
