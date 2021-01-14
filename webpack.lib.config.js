@@ -38,16 +38,17 @@ module.exports = {
   productionSourceMap: false,
   chainWebpack: config => {
     config.entryPoints.delete('app')
-    config
-      .plugin('extract-css')
-      .tap(options => {
-        options[0] = {
-          filename: 'css/index.css',
-          chunkFilename: 'css/index.css',
-        }
-        return options
-      })
-      .end()
+    config.plugin('extract-css').tap(options => {
+      options[0] = {
+        filename: 'css/index.css',
+        chunkFilename: 'css/index.css',
+      }
+      return options
+    })
+
+    if (process.env.npm_config_report === 'true') {
+      config.plugin('bundleAnalyzer').use(BundleAnalyzerPlugin)
+    }
   },
   configureWebpack: {
     entry: components,
@@ -68,7 +69,6 @@ module.exports = {
       new TerserPlugin({
         terserOptions: {compress: {drop_console: true}},
       }),
-      new BundleAnalyzerPlugin(),
     ],
     externals: externals,
   },
