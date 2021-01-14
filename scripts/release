@@ -11,7 +11,10 @@ npm config set registry https://registry.npmjs.org/
 
 git add .
 git commit -m  "chore(release) version: "$PACKAGE_VERSION" ""commit:""$1"
-git push -u
+git pull origin master 
+git push origin HEAD:master
 
 npm_config_report=false npm run build
 npm publish --access public --registry=https://registry.npmjs.org/
+
+
