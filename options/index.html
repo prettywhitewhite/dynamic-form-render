@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>配置 | dynamic-form-render</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="dynamic-form-render 是基于vue.js ,element-ui 的前端动态表单渲染器，可通过配置文件快速的生成 form 表单。">
+    
+    <link rel="preload" href="/dynamic-form-render/assets/css/0.styles.e8439666.css" as="style"><link rel="preload" href="/dynamic-form-render/assets/js/app.40179382.js" as="script"><link rel="preload" href="/dynamic-form-render/assets/js/2.2fa6cc91.js" as="script"><link rel="preload" href="/dynamic-form-render/assets/js/14.bb48d38c.js" as="script"><link rel="prefetch" href="/dynamic-form-render/assets/js/10.c687997c.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/11.d78bdd23.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/12.81c8b3b7.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/13.21b17d58.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/3.b3959869.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/4.a2d94dd9.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/5.8ef3d6fb.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/6.ca4b22da.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/7.e178815a.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/8.932aa046.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/9.5dffafcd.js">
+    <link rel="stylesheet" href="/dynamic-form-render/assets/css/0.styles.e8439666.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dynamic-form-render/" class="home-link router-link-active"><!----> <span class="site-name">dynamic-form-render</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/dynamic-form-render/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="/dynamic-form-render/options/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  配置
+</a></div><div class="nav-item"><a href="/dynamic-form-render/components/text.html" class="nav-link">
+  组件
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/dynamic-form-render/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="/dynamic-form-render/options/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  配置
+</a></div><div class="nav-item"><a href="/dynamic-form-render/components/text.html" class="nav-link">
+  组件
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/dynamic-form-render/options/" aria-current="page" class="active sidebar-link">配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#表单基本配置" class="sidebar-link">表单基本配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#field" class="sidebar-link">field</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#label" class="sidebar-link">label</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#type" class="sidebar-link">type</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#dependence" class="sidebar-link">dependence</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#config" class="sidebar-link">config</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#rules" class="sidebar-link">rules</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#default" class="sidebar-link">default</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#prefixicon" class="sidebar-link">prefixIcon</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#suffixicon" class="sidebar-link">suffixIcon</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#tip" class="sidebar-link">tip</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#desc" class="sidebar-link">desc</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#clean" class="sidebar-link">clean</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#desc-2" class="sidebar-link">desc</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#group" class="sidebar-link">group</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#fields" class="sidebar-link">fields</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/options/#display" class="sidebar-link">display</a></li></ul></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="配置"><a href="#配置" class="header-anchor">#</a> 配置</h1> <h2 id="表单基本配置"><a href="#表单基本配置" class="header-anchor">#</a> 表单基本配置</h2> <h3 id="field"><a href="#field" class="header-anchor">#</a> field</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>''</code><br>
+当前表单项对应 formData 中的字段名</li></ul> <h3 id="label"><a href="#label" class="header-anchor">#</a> label</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>-</code><br>
+表单项对应的标签文本<br>
+不设置<code>label</code> 时，表单域标签的的宽度为 0；设置<code>label</code>为<code>''</code>时，表单域标签的的宽度为<code>label-width</code></li></ul> <h3 id="type"><a href="#type" class="header-anchor">#</a> type</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>-</code><br>
+表单项对应的前端组件名，内置组件对应表详见<a href="/dynamic-form-render/guide/start.html#内置组件对照表">内置组件对照表</a><br>
+使用自定义组件，可在注册自定义组件后再使用， 注册自定义组件，详见<a href="/dynamic-form-render/guide/start.html#注册自定义组件">注册自定义组件</a></li></ul> <h3 id="dependence"><a href="#dependence" class="header-anchor">#</a> dependence</h3> <ul><li>类型 <code>object</code></li> <li>默认值 <code>-</code><br>
+表单依赖规则，提供 show，hide, disabled， value 实现显示、隐藏、禁用和设值。
+<table><thead><tr><th>参数</th> <th>类型</th> <th>默认值</th> <th>可选值</th> <th>说明</th></tr></thead> <tbody><tr><td>show</td> <td>boolean</td> <td>true</td> <td>-</td> <td>值为 true 时，显示表单项</td></tr> <tr><td>hide</td> <td>boolean</td> <td>false</td> <td>-</td> <td>值为 false 时，隐藏表单项</td></tr> <tr><td>disabled</td> <td>boolean</td> <td>false</td> <td>-</td> <td>值为 true 时，禁用表单项</td></tr> <tr><td>set</td> <td>object</td> <td>-</td> <td>-</td> <td>字段<code>condition</code>为真时，将<code>value</code>字段的值赋值到表单域对应 formData 中的<code>field</code>中</td></tr></tbody></table>
+注意： <code>dependence</code>支持使用函数表达式联动实现依赖。详见<a href="/dynamic-form-render/guide/start.html#如何实现联动">如何实现联动</a></li></ul> <h4 id="_1-显示表单项"><a href="#_1-显示表单项" class="header-anchor">#</a> 1. 显示表单项</h4> <p><code>show</code>不为 false 且<code>hide</code>不为 true。</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// formdata.showItem = true</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;dependence&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;show&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{!!rootValue.showItem}}&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 或</span>
+<span class="token punctuation">{</span>
+   <span class="token property">&quot;dependence&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hide&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{!rootValue.showItem}}&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_2-隐藏表单项"><a href="#_2-隐藏表单项" class="header-anchor">#</a> 2.隐藏表单项</h4> <p><code>show</code>为 false 或<code>hide</code>为 true。</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// formdata.showItem = true</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;dependence&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;show&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{!rootValue.showItem}}&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 或</span>
+<span class="token punctuation">{</span>
+   <span class="token property">&quot;dependence&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hide&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{!!rootValue.showItem}}&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_3-禁用表单项"><a href="#_3-禁用表单项" class="header-anchor">#</a> 3. 禁用表单项</h4> <p><code>disabled</code>为 true</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// formdata.disabled = true</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;dependence&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;disabled&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{rootValue.disabled}}&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_4-为表单项设值"><a href="#_4-为表单项设值" class="header-anchor">#</a> 4. 为表单项设值</h4> <p>字段<code>condition</code>为真时，将<code>value</code>字段的值赋值到表单域对应 formData 中的<code>field</code>中</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;field&quot;</span><span class="token operator">:</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;input&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;姓名&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dependence&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;set&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;condition&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{!!rootValue.setValue}}&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token string">&quot;小明&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>当<code>!!formdata.setValue</code>为 true 时 <code>formData.name</code> = <code>'小明'</code></p> <h3 id="config"><a href="#config" class="header-anchor">#</a> config</h3> <ul><li>类型 <code>object</code></li> <li>默认值 <code>-</code></li> <li>支持使用函数表达式联动实现联动<br> <code>config</code>字段可以配置表单域组件的 props 属性 ，<code>config.on</code>可以配置组件中的事件处理</li></ul> <h4 id="例-1-为输入框配置-placeholder-属性"><a href="#例-1-为输入框配置-placeholder-属性" class="header-anchor">#</a> 例 1.为输入框配置 <code>placeholder</code> 属性</h4> <h4 id="配置-2"><a href="#配置-2" class="header-anchor">#</a> 配置</h4> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;field&quot;</span><span class="token operator">:</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;姓名&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;input&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;placeholder&quot;</span><span class="token operator">:</span> <span class="token string">&quot;请输入姓名...&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h4 id="输出"><a href="#输出" class="header-anchor">#</a> 输出：</h4> <form class="el-form dy-form"><div class="dy-form-fields--0"><div class="el-form-item dy-form-field dy-form-field-path--name"><label for="name" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 姓名 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="name" labelWidth="140px" placeholder="请输入姓名..." class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div></form> <h4 id="例-2-为-checkbox-配置-change-事件"><a href="#例-2-为-checkbox-配置-change-事件" class="header-anchor">#</a> 例 2.为 checkbox 配置 <code>change</code> 事件</h4> <h4 id="配置-3"><a href="#配置-3" class="header-anchor">#</a> 配置</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> renderStructure <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'type'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'radioGroup'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'证件类型'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">config</span><span class="token operator">:</span> <span class="token parameter">rootValue</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+      options<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          id<span class="token operator">:</span> <span class="token string">'studentIdCard'</span><span class="token punctuation">,</span>
+          text<span class="token operator">:</span> <span class="token string">'学生证'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          id<span class="token operator">:</span> <span class="token string">'idCard'</span><span class="token punctuation">,</span>
+          text<span class="token operator">:</span> <span class="token string">'身份证'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      on<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">change</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          rootValue<span class="token punctuation">.</span>cardNumber <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'cardNumber'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'证件号'</span><span class="token punctuation">,</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+      placeholder<span class="token operator">:</span> <span class="token string">'请输入证件号'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h4 id="输出-2"><a href="#输出-2" class="header-anchor">#</a> 输出：</h4> <form class="el-form dy-form"><div class="dy-form-fields--0"><div class="el-form-item dy-form-field dy-form-field-path--type"><label for="type" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 证件类型 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div role="radiogroup" path="type" labelWidth="140px" class="el-radio-group dy-radio-group" style="margin-left:NaNpx;"><label role="radio" tabindex="-1" class="el-radio dy-radio-group__item"><span class="el-radio__input"><span class="el-radio__inner"></span><input type="radio" aria-hidden="true" tabindex="-1" value="studentIdCard" class="el-radio__original"></span><span class="el-radio__label"> 学生证 <!----></span></label><label role="radio" tabindex="-1" class="el-radio dy-radio-group__item"><span class="el-radio__input"><span class="el-radio__inner"></span><input type="radio" aria-hidden="true" tabindex="-1" value="idCard" class="el-radio__original"></span><span class="el-radio__label"> 身份证 <!----></span></label></div><!----><!----><!----></div></div></div><div class="dy-form-fields--1"><div class="el-form-item dy-form-field dy-form-field-path--cardNumber"><label for="cardNumber" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 证件号 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="cardNumber" labelWidth="140px" placeholder="请输入证件号" class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div></form> <h3 id="rules"><a href="#rules" class="header-anchor">#</a> rules</h3> <ul><li>类型 <code>object</code>| <code>Array</code></li> <li>默认值 <code>-</code><br>
+表单项校验规则，与 elForm 保持一致</li></ul> <h4 id="例-表单验证"><a href="#例-表单验证" class="header-anchor">#</a> 例 表单验证</h4> <div class="demo-block"><form class="el-form dy-form"><div class="dy-form-fields--0"><div class="el-form-item dy-form-field is-required dy-form-field-path--name"><label for="name" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 姓名 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="name" labelWidth="140px" placeholder="请输入姓名" class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div><div class="dy-form-fields--1"><div class="el-form-item dy-form-field is-required dy-form-field-path--sex"><label for="sex" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 性别 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div role="group" aria-label="checkbox-group" path="sex" labelWidth="140px" class="el-checkbox-group dy-checkbox-group" style="margin-left:NaNpx;"><label class="el-checkbox dy-checkbox-group__item"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" value="1" class="el-checkbox__original"></span><span class="el-checkbox__label">男<!----></span></label><label class="el-checkbox dy-checkbox-group__item"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" value="2" class="el-checkbox__original"></span><span class="el-checkbox__label">女<!----></span></label></div><!----><!----><!----></div></div></div><div class="dy-form-fields--2"><div class="el-form-item dy-form-field is-required dy-form-field-path--mobilePhone"><label for="mobilePhone" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 手机号码 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="mobilePhone" labelWidth="140px" placeholder="请输入您的联系电话" class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div><div class="dy-form-fields--3"><div class="el-form-item dy-form-field dy-form-field-path--message"><label for="message" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 留言 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div path="message" labelWidth="140px" placeholder="请留言" class="dy-textarea" style="margin-left:NaNpx;"><div class="dy-textarea__inner el-textarea"><textarea autocomplete="off" path="message" labelWidth="140px" placeholder="请留言" rows="3" class="el-textarea__inner" style="resize:none;"></textarea><!----></div><span class="dy-textarea__count"><span>0</span><span>/30</span></span></div><!----><!----><!----></div></div></div><div style="text-align:center;"><button type="button" class="el-button el-button--default"><!----><!----><span>保存</span></button> <button type="button" class="el-button el-button--default"><!----><!----><span>清空</span></button></div></form></div> <details class="custom-block details"><summary>点击查看配置</summary> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> renderStructure <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+      placeholder<span class="token operator">:</span> <span class="token string">'请输入姓名'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+      required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      message<span class="token operator">:</span> <span class="token string">'请输入您的姓名'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'sex'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'性别'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'checkboxGroup'</span><span class="token punctuation">,</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+      options<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          text<span class="token operator">:</span> <span class="token string">'男'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          text<span class="token operator">:</span> <span class="token string">'女'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+      required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      message<span class="token operator">:</span> <span class="token string">'请选择您的性别'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'mobilePhone'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'手机号码'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+      placeholder<span class="token operator">:</span> <span class="token string">'请输入您的联系电话'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token string">'请输入手机号码'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token function-variable function">validator</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">rule<span class="token punctuation">,</span> value<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^1(3|4|5|6|7|8|9)d{9}$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token string">'请输入正确的手机号码'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+          <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        trigger<span class="token operator">:</span> <span class="token string">'blur'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'message'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'留言'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'textarea'</span><span class="token punctuation">,</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+      placeholder<span class="token operator">:</span> <span class="token string">'请留言'</span><span class="token punctuation">,</span>
+      showWordLimit<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      max<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+      word<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+      max<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+      word<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre></div></details> <h3 id="default"><a href="#default" class="header-anchor">#</a> default</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>-</code><br>
+为表单域值设值默认值。</li></ul> <h4 id="例-为输入框设值默认值"><a href="#例-为输入框设值默认值" class="header-anchor">#</a> 例 为输入框设值默认值</h4> <h4 id="配置-4"><a href="#配置-4" class="header-anchor">#</a> 配置</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> renderStructure <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    field<span class="token operator">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+    label<span class="token operator">:</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h4 id="输出-3"><a href="#输出-3" class="header-anchor">#</a> 输出</h4> <form class="el-form dy-form"><div class="dy-form-fields--0"><div class="el-form-item dy-form-field dy-form-field-path--type"><label for="type" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 证件类型 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div role="radiogroup" path="type" labelWidth="140px" class="el-radio-group dy-radio-group" style="margin-left:NaNpx;"><label role="radio" tabindex="-1" class="el-radio dy-radio-group__item"><span class="el-radio__input"><span class="el-radio__inner"></span><input type="radio" aria-hidden="true" tabindex="-1" value="studentIdCard" class="el-radio__original"></span><span class="el-radio__label"> 学生证 <!----></span></label><label role="radio" tabindex="-1" class="el-radio dy-radio-group__item"><span class="el-radio__input"><span class="el-radio__inner"></span><input type="radio" aria-hidden="true" tabindex="-1" value="idCard" class="el-radio__original"></span><span class="el-radio__label"> 身份证 <!----></span></label></div><!----><!----><!----></div></div></div><div class="dy-form-fields--1"><div class="el-form-item dy-form-field dy-form-field-path--cardNumber"><label for="cardNumber" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 证件号 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="cardNumber" labelWidth="140px" placeholder="请输入证件号" class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div></form> <h3 id="prefixicon"><a href="#prefixicon" class="header-anchor">#</a> prefixIcon</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>-</code><br>
+表单项的标签名头部图标</li></ul> <h3 id="suffixicon"><a href="#suffixicon" class="header-anchor">#</a> suffixIcon</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>-</code><br>
+表单项的标签名尾部图标</li></ul> <h3 id="tip"><a href="#tip" class="header-anchor">#</a> tip</h3> <ul><li>类型 <code>string</code></li> <li>默认 <code>-</code><br>
+表单项提示文案</li></ul> <h3 id="desc"><a href="#desc" class="header-anchor">#</a> desc</h3> <ul><li><p>类型 <code>string</code></p></li> <li><p>默认 <code>-</code><br>
+表单项描述文案</p> <h3 id="clean"><a href="#clean" class="header-anchor">#</a> clean</h3></li> <li><p>类型 <code>boolean</code></p></li> <li><p>默认 <code>false</code><br>
+设置为 true 时，当表单项隐藏时清空已填内容。</p> <h3 id="desc-2"><a href="#desc-2" class="header-anchor">#</a> desc</h3></li> <li><p>类型 <code>string</code></p></li> <li><p>默认 <code>-</code><br>
+表单项描述文案</p></li></ul> <h3 id="group"><a href="#group" class="header-anchor">#</a> group</h3> <ul><li>类型 <code>string</code></li> <li>默认值: <code>''</code><br>
+配置 group 字段时，将渲染该配置项中 fields 字段下的所有表单项组合成为一个复合表单项组。详见<a href="/dynamic-form-render/options/#复合表单项">复合表单项</a></li></ul> <h3 id="fields"><a href="#fields" class="header-anchor">#</a> fields</h3> <ul><li>类型 <code>Array</code></li> <li>默认值 <code>[]</code><br>
+group 属性不为空时 或 type 类型为 multiGroup 时有效。<br>
+当 group 属性不为空时，将渲染 fields 字段中所有表单项组合成为一个复合表单项组。 详见<a href="/dynamic-form-render/options/#复合表单项">复合表单项</a></li></ul> <h3 id="display"><a href="#display" class="header-anchor">#</a> display</h3> <ul><li>类型 <code>string</code></li> <li>默认值 <code>-</code></li> <li>可选值 <code>'section'</code>|<code>'group'</code><br>
+配置表单项的展示形式，可设置为'section'或'group',详见<a href="/dynamic-form-render/options/#复合表单项">复合表单项</a></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/dynamic-form-render/assets/js/app.40179382.js" defer></script><script src="/dynamic-form-render/assets/js/2.2fa6cc91.js" defer></script><script src="/dynamic-form-render/assets/js/14.bb48d38c.js" defer></script>
+  </body>
+</html>

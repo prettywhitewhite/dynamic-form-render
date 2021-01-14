@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>指南 | dynamic-form-render</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="dynamic-form-render 是基于vue.js ,element-ui 的前端动态表单渲染器，可通过配置文件快速的生成 form 表单。">
+    
+    <link rel="preload" href="/dynamic-form-render/assets/css/0.styles.e8439666.css" as="style"><link rel="preload" href="/dynamic-form-render/assets/js/app.40179382.js" as="script"><link rel="preload" href="/dynamic-form-render/assets/js/2.2fa6cc91.js" as="script"><link rel="preload" href="/dynamic-form-render/assets/js/12.81c8b3b7.js" as="script"><link rel="prefetch" href="/dynamic-form-render/assets/js/10.c687997c.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/11.d78bdd23.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/13.21b17d58.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/14.bb48d38c.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/3.b3959869.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/4.a2d94dd9.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/5.8ef3d6fb.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/6.ca4b22da.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/7.e178815a.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/8.932aa046.js"><link rel="prefetch" href="/dynamic-form-render/assets/js/9.5dffafcd.js">
+    <link rel="stylesheet" href="/dynamic-form-render/assets/css/0.styles.e8439666.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dynamic-form-render/" class="home-link router-link-active"><!----> <span class="site-name">dynamic-form-render</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/dynamic-form-render/guide/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="/dynamic-form-render/options/" class="nav-link">
+  配置
+</a></div><div class="nav-item"><a href="/dynamic-form-render/components/text.html" class="nav-link">
+  组件
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/dynamic-form-render/guide/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="/dynamic-form-render/options/" class="nav-link">
+  配置
+</a></div><div class="nav-item"><a href="/dynamic-form-render/components/text.html" class="nav-link">
+  组件
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/dynamic-form-render/guide/" aria-current="page" class="active sidebar-link">指南</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/#介绍" class="sidebar-link">介绍</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/#安装" class="sidebar-link">安装</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/#快速使用" class="sidebar-link">快速使用</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/#一个简单的例子" class="sidebar-link">一个简单的例子</a></li></ul></li><li><a href="/dynamic-form-render/guide/start.html" class="sidebar-link">开始使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#api" class="sidebar-link">API</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#structure" class="sidebar-link">Structure</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#如何实现联动" class="sidebar-link">如何实现联动</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#如何实现依赖" class="sidebar-link">如何实现依赖</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#内置组件对照表" class="sidebar-link">内置组件对照表</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#组合简单组件成为复合表单组" class="sidebar-link">组合简单组件成为复合表单组</a></li><li class="sidebar-sub-header"><a href="/dynamic-form-render/guide/start.html#注册自定义组件" class="sidebar-link">注册自定义组件</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="指南"><a href="#指南" class="header-anchor">#</a> 指南</h1> <h2 id="介绍"><a href="#介绍" class="header-anchor">#</a> 介绍</h2> <p><code>dynamic-form-render</code> 是基于<code>vue.js</code> ,<code>element-ui</code> 的前端动态表单渲染器，可通过配置文件快速的生成 form 表单。</p> <h2 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h2> <div class="language-js extra-class"><pre class="language-js"><code>npm i dynamic<span class="token operator">-</span>form<span class="token operator">-</span>render
+# or
+yarn add dynamic<span class="token operator">-</span>form<span class="token operator">-</span>render
+</code></pre></div><h2 id="快速使用"><a href="#快速使用" class="header-anchor">#</a> 快速使用</h2> <p>在 main.js 中写入以下内容：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> dynamicFormRender <span class="token keyword">from</span> <span class="token string">'dynamic-form-render'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>dynamicFormRender<span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=&gt;</span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="一个简单的例子"><a href="#一个简单的例子" class="header-anchor">#</a> 一个简单的例子</h2> <div class="demo-block"><form class="el-form dy-form"><div class="dy-form-fields--0"><div class="el-form-item dy-form-field is-required dy-form-field-path--name"><label for="name" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 姓名 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="name" labelWidth="140px" placeholder="请输入姓名" class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div><div class="dy-form-fields--1"><div class="el-form-item dy-form-field is-required dy-form-field-path--sex"><label for="sex" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 性别 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div role="radiogroup" path="sex" labelWidth="140px" class="el-radio-group dy-radio-group" style="margin-left:NaNpx;"><label role="radio" tabindex="-1" class="el-radio dy-radio-group__item"><span class="el-radio__input"><span class="el-radio__inner"></span><input type="radio" aria-hidden="true" tabindex="-1" value="man" class="el-radio__original"></span><span class="el-radio__label"> 男 <!----></span></label><label role="radio" tabindex="-1" class="el-radio dy-radio-group__item"><span class="el-radio__input"><span class="el-radio__inner"></span><input type="radio" aria-hidden="true" tabindex="-1" value="woman" class="el-radio__original"></span><span class="el-radio__label"> 女 <!----></span></label></div><!----><!----><!----></div></div></div><div class="dy-form-fields--2"><div class="el-form-item dy-form-field dy-form-field-path--mobilePhone"><label for="mobilePhone" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 手机号码 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div class="dy-input el-input" style="margin-left:NaNpx;"><!----><input type="text" autocomplete="off" path="mobilePhone" labelWidth="140px" placeholder="请输入您的联系电话" class="el-input__inner"><!----><!----><!----><!----></div><!----><!----><!----></div></div></div><div class="dy-form-fields--3"><div class="el-form-item dy-form-field dy-form-field-path--message"><label for="message" class="el-form-item__label" style="width:140px;"><span class="dy-form-field__label"><!----> 留言 <!----></span></label><div class="el-form-item__content" style="margin-left:140px;"><div path="message" labelWidth="140px" placeholder="请留言..." class="dy-textarea" style="margin-left:NaNpx;"><div class="dy-textarea__inner el-textarea"><textarea autocomplete="off" path="message" labelWidth="140px" placeholder="请留言..." rows="3" class="el-textarea__inner" style="resize:none;"></textarea><!----></div><span class="dy-textarea__count"><span>0</span><span>/30</span></span></div><!----><!----><!----></div></div></div><div style="text-align:center;"><button type="button" class="el-button el-button--default"><!----><!----><span>保存</span></button> <button type="button" class="el-button el-button--default"><!----><!----><span>清空</span></button></div></form></div> <p>表单数据：{}</p> <details class="custom-block details"><summary>点击查看代码</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>demo-block<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dynamic-form</span>
+      <span class="token attr-name">:structure</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>renderStructure<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>iData<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>exampleForm<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:context.sync</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>context<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>footer<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:</span><span class="token style-attr language-css"><span class="token attr-name"><span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token punctuation">{</span><span class="token string">'text-align'</span><span class="token punctuation">:</span> <span class="token string">'center'</span><span class="token punctuation">}</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>save<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>保存<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>resetFields<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>清空<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dynamic-form</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'App'</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> renderStructure <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        field<span class="token operator">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+        label<span class="token operator">:</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+        config<span class="token operator">:</span> <span class="token punctuation">{</span>
+          placeholder<span class="token operator">:</span> <span class="token string">'请输入姓名'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        dependence<span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token function-variable function">show</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">rootValue<span class="token punctuation">,</span> parentValue<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> context<span class="token punctuation">.</span>show<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+          required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          message<span class="token operator">:</span> <span class="token string">'请输入您的姓名'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        field<span class="token operator">:</span> <span class="token string">'sex'</span><span class="token punctuation">,</span>
+        label<span class="token operator">:</span> <span class="token string">'性别'</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'radioGroup'</span><span class="token punctuation">,</span>
+        config<span class="token operator">:</span> <span class="token punctuation">{</span>
+          options<span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              id<span class="token operator">:</span> <span class="token string">'man'</span><span class="token punctuation">,</span>
+              text<span class="token operator">:</span> <span class="token string">'男'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+              id<span class="token operator">:</span> <span class="token string">'woman'</span><span class="token punctuation">,</span>
+              text<span class="token operator">:</span> <span class="token string">'女'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+          required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          message<span class="token operator">:</span> <span class="token string">'请选择您的性别'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        field<span class="token operator">:</span> <span class="token string">'mobilePhone'</span><span class="token punctuation">,</span>
+        label<span class="token operator">:</span> <span class="token string">'手机号码'</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+        config<span class="token operator">:</span> <span class="token punctuation">{</span>
+          placeholder<span class="token operator">:</span> <span class="token string">'请输入您的联系电话'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token function-variable function">validator</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">rule<span class="token punctuation">,</span> value<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^1(3|4|5|6|7|8|9)\d{9}$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">return</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token string">'请输入正确的手机号码'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          trigger<span class="token operator">:</span> <span class="token string">'blur'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        field<span class="token operator">:</span> <span class="token string">'message'</span><span class="token punctuation">,</span>
+        label<span class="token operator">:</span> <span class="token string">'留言'</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'textarea'</span><span class="token punctuation">,</span>
+        config<span class="token operator">:</span> <span class="token punctuation">{</span>
+          placeholder<span class="token operator">:</span> <span class="token string">'请留言...'</span><span class="token punctuation">,</span>
+          showWordLimit<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          max<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+          word<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      iData<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      context<span class="token operator">:</span> <span class="token punctuation">{</span>
+        show<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      renderStructure<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">[</span><span class="token string">'exampleForm'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">valid</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>valid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'保存'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">resetFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">[</span><span class="token string">'exampleForm'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">resetFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/dynamic-form-render/guide/start.html">
+        开始使用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/dynamic-form-render/assets/js/app.40179382.js" defer></script><script src="/dynamic-form-render/assets/js/2.2fa6cc91.js" defer></script><script src="/dynamic-form-render/assets/js/12.81c8b3b7.js" defer></script>
+  </body>
+</html>
