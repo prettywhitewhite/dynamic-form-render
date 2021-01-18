@@ -24,7 +24,7 @@ elementExternals.components.forEach(function(key) {
   externals[`element-ui/lib/${key}`] = `element-ui/lib/${key}`
 })
 Object.keys(components).forEach(function(key) {
-  if (key === 'app') {
+  if (key === 'index') {
     return
   }
   const sourcePath = components[key]
