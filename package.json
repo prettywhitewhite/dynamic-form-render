@@ -19,7 +19,7 @@
     "element-ui": "^2.13.2",
     "lodash": "^4.17.20",
     "qrcode": "^1.4.4",
-    "sanitize-html": "^1.25.0",
+    "sanitize-html": "^2.3.2",
     "stylelint": "^13.6.0",
     "terser-webpack-plugin-legacy": "^1.2.5",
     "vue-router": "^3.3.2"
